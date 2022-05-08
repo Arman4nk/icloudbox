@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:icloudbox/Home/main_page.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/Widgets/custom_input.dart';
-
-import '../../Widgets/custom_button.dart';
-import '../../Widgets/login_box.dart';
+import '../../../Widgets/custom_button.dart';
+import '../../../Widgets/login_box.dart';
+import '../../Home/main_page.dart';
 import '../controller/login_controller.dart';
 
 class FirstPage extends StatelessWidget {

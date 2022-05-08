@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:icloudbox/Home/Files/page/file.dart';
-import 'package:icloudbox/Home/Home/page/home.dart';
-
+import 'package:icloudbox/View/Home/Files/page/file.dart';
+import 'package:icloudbox/View/Home/Home/page/home.dart';
 import 'Setting/page/setting.dart';
 import 'Shared/page/shared.dart';
 

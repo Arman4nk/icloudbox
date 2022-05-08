@@ -1,15 +1,21 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'SplashScreen/page/splash_screen.dart';
 import 'Utils/colors.dart';
+import 'View/SplashScreen/page/splash_screen.dart';
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+        )
+    );
     return ScreenUtilInit(
         designSize: const Size(428, 926),
         minTextAdapt: true,
