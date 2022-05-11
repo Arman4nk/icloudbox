@@ -7,7 +7,7 @@ import 'Shared/page/shared.dart';
 
 
 class MainPageController extends GetxController{
-  final pageIndex = 0.obs;
+  final pageIndex = 1.obs;
   final List<Widget> tabList=[
     const Home(),
     const File(),
