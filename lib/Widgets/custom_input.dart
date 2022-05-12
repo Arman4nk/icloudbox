@@ -93,7 +93,7 @@ class CustomInput extends StatelessWidget {
             controller: controller,
             keyboardType: textInputType,
             maxLength: maxLength,
-            style: AppStyles.regularBody1,
+              style: AppStyles.regularBody1,
             onChanged: onChange,
             validator: validator,
             onSaved: onSave,

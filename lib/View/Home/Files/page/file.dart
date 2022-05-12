@@ -109,22 +109,29 @@ class File extends StatelessWidget {
                     child: Text('All Files',style: AppStyles.semiBoldHeadline2,),
                   ),
                   SizedBox( height: 20.h,),
-                  const FileWidget(
+                   FileWidget(
                      img: 'assets/image/temp/svg/document_file.svg',
                     subtitle: '4 Folder  - 124MB',
                     title: 'Broucelee Va Baradaran',
+                    slideOption: controller.slideFileOption,
+
                   ),
-                  const FileWidget(
+                   FileWidget(
                     img: 'assets/image/temp/svg/document_file.svg',
                     subtitle: '4 Folder  - 124MB',
                     title: 'Documents',
                     subTitleIcon: 'assets/image/file/svg/group.svg',
+                    slideOption: controller.slideFileOption,
+
                   ),
-                  const FileWidget(
+                   FileWidget(
                     img: 'assets/image/temp/svg/document_file.svg',
                     subtitle: '4 Folder  - 124MB',
                     title: 'Broucelee Va Baradaran',
                     subTitleIcon: 'assets/image/file/svg/star.svg',
+                    slideOption: controller.slideFileOption,
+
+
                   ),
                 ],
               ),
