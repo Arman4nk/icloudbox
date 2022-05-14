@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:icloudbox/Utils/colors.dart';
+import 'package:icloudbox/Utils/text_styls.dart';
+import 'package:icloudbox/View/Home/Files/component/search_item.dart';
 import 'package:icloudbox/View/Home/Files/controller/search_file_controller.dart';
 import 'package:icloudbox/Widgets/custom_input.dart';
 
-import '../../../../Utils/colors.dart';
-import '../../../../Utils/text_styls.dart';
-import '../../../../Widgets/file_widget.dart';
-import '../component/search_item.dart';
 
 class SearchFile extends StatelessWidget {
   const SearchFile({Key? key}) : super(key: key);
@@ -95,6 +93,7 @@ class SearchFile extends StatelessWidget {
                     img: 'assets/image/temp/svg/document_file.svg',
                     subtitle: 'No Folder - 0KB',
                     title: 'photos',
+                    search: 'oto',
 
                   ),
                   const SearchItem(

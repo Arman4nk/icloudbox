@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -8,7 +10,6 @@ import '../../../Widgets/custom_button.dart';
 import '../../../Widgets/login_box.dart';
 import '../../Home/main_page.dart';
 import '../controller/login_controller.dart';
-
 
 class FirstPage extends StatelessWidget {
   const FirstPage({Key? key}) : super(key: key);
@@ -46,267 +47,593 @@ class FirstPage extends StatelessWidget {
               SizedBox(
                 height: 34.h,
               ),
-              LoginBox(
-                svgIcon: 'assets/image/auth/svg/lock.svg',
-                title: 'Login',
-                subtitle: 'Login To Your Account',
-                onTap: () {
-                  Get.bottomSheet(
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 20.h),
-                                  child: InkWell(
-                                      onTap: () {
-                                        Get.back();
-                                      },
-                                      child: Image.asset(
-                                        'assets/image/auth/img/exit.png',
-                                        width: 50.w,
-                                      )),
-                                ),
-                                Text(
-                                  'Login',
-                                  style: AppStyles.semiBoldHeadline1,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(20.0),
-                                  child: Text(
-                                    'Login',
-                                    style: AppStyles.semiBoldHeadline1
-                                        .apply(color: Colors.transparent),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 14.h,
-                            ),
-                            Obx(
-                              () => CustomInput(
-                                header: 'Your Mail',
-                                hintText: 'Enter Your Mail',
-                                svgIcon: 'assets/image/auth/svg/mail.svg',
-                                focusNode: controller.myFocusNode1,
-                                pressed: controller.focus1.value,
-                                onChange: (value) {},
-                              ),
-                            ),
-                            SizedBox(
-                              height: 24.h,
-                            ),
-                            Obx(
-                              () => CustomInput(
-                                header: 'Your Password',
-                                hintText: 'Enter Your Password',
-                                svgIcon: 'assets/image/auth/svg/pass.svg',
-                                focusNode: controller.myFocusNode2,
-                                pressed: controller.focus2.value,
-                                onChange: (value) {},
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            CustomButton(
-                              title: 'Login To Account',
-                              loading: false,
-                              onTap: () {
-                                Get.to(()=> const MAinPage());
-                              },
-                            ),
-                            SizedBox(
-                              height: 30.h,
-                            ),
-                            InkWell(
-                              onTap: (){
-                                Get.back();
-                                Get.bottomSheet(
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                                    child: SingleChildScrollView(
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(vertical: 20.h),
-                                                child: InkWell(
-                                                    onTap: () {
-                                                      Get.back();
-                                                    },
-                                                    child: Image.asset(
-                                                      'assets/image/auth/img/exit.png',
-                                                      width: 50.w,
-                                                    )),
-                                              ),
-                                              Text(
-                                                'Forget Password',
-                                                style: AppStyles.semiBoldHeadline1,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.all(20.0),
-                                                child: Text(
-                                                  'Login',
-                                                  style: AppStyles.semiBoldHeadline1
-                                                      .apply(color: Colors.transparent),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 14.h,
-                                          ),
-                                          Obx(
-                                                () => CustomInput(
-                                              header: 'Your Mail',
-                                              hintText: 'Enter Your Mail',
-                                              svgIcon: 'assets/image/auth/svg/mail.svg',
-                                              focusNode: controller.myFocusNode1,
-                                              pressed: controller.focus1.value,
-                                              onChange: (value) {},
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 20.h,
-                                          ),
-                                          CustomButton(
-                                            title: 'Submit',
-                                            loading: false,
+              Builder(
+                builder: (context22) => LoginBox(
+                  svgIcon: 'assets/image/auth/svg/lock.svg',
+                  title: 'Login',
+                  subtitle: 'Login To Your Account',
+                  onTap: () {
+                    Scaffold.of(context22).showBottomSheet(
+                      (context) => BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                        child: BottomSheet(
+                          backgroundColor: AppColors.accent2,
+                          elevation: 0,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20)),
+                          ),
+                          builder: (context) => Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.symmetric(vertical: 20.h),
+                                        child: InkWell(
                                             onTap: () {
                                               Get.back();
-                                              Get.bottomSheet(
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                                                  child: SingleChildScrollView(
-                                                    child: Column(
-                                                      children: [
-                                                        Row(
-                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                          children: [
-                                                            Padding(
-                                                              padding: EdgeInsets.symmetric(vertical: 20.h),
-                                                              child: InkWell(
-                                                                  onTap: () {
-                                                                    Get.back();
-                                                                  },
-                                                                  child: Image.asset(
-                                                                    'assets/image/auth/img/exit.png',
-                                                                    width: 50.w,
-                                                                  )),
-                                                            ),
-                                                            Text(
-                                                              'Change Password',
-                                                              style: AppStyles.semiBoldHeadline1,
-                                                            ),
-                                                            Padding(
-                                                              padding: const EdgeInsets.all(20.0),
-                                                              child: Text(
-                                                                'Login',
-                                                                style: AppStyles.semiBoldHeadline1
-                                                                    .apply(color: Colors.transparent),
+                                            },
+                                            child: Image.asset(
+                                              'assets/image/auth/img/exit.png',
+                                              width: 50.w,
+                                            )),
+                                      ),
+                                      Text(
+                                        'Login',
+                                        style: AppStyles.semiBoldHeadline1,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(20.0),
+                                        child: Text(
+                                          'Login',
+                                          style: AppStyles.semiBoldHeadline1
+                                              .apply(color: Colors.transparent),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 14.h,
+                                  ),
+                                  Obx(
+                                    () => CustomInput(
+                                      header: 'Your Mail',
+                                      hintText: 'Enter Your Mail',
+                                      svgIcon: 'assets/image/auth/svg/mail.svg',
+                                      focusNode: controller.myFocusNode1,
+                                      pressed: controller.focus1.value,
+                                      onChange: (value) {},
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 24.h,
+                                  ),
+                                  Obx(
+                                    () => CustomInput(
+                                      header: 'Your Password',
+                                      hintText: 'Enter Your Password',
+                                      svgIcon: 'assets/image/auth/svg/pass.svg',
+                                      focusNode: controller.myFocusNode2,
+                                      pressed: controller.focus2.value,
+                                      onChange: (value) {},
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 20.h,
+                                  ),
+                                  CustomButton(
+                                    title: 'Login To Account',
+                                    loading: false,
+                                    onTap: () {
+                                      Get.to(() => const MAinPage());
+                                    },
+                                  ),
+                                  SizedBox(
+                                    height: 30.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Get.back();
+                                      Get.bottomSheet(
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 20.w),
+                                          child: SingleChildScrollView(
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 20.h),
+                                                      child: InkWell(
+                                                          onTap: () {
+                                                            Get.back();
+                                                          },
+                                                          child: Image.asset(
+                                                            'assets/image/auth/img/exit.png',
+                                                            width: 50.w,
+                                                          )),
+                                                    ),
+                                                    Text(
+                                                      'Forget Password',
+                                                      style: AppStyles
+                                                          .semiBoldHeadline1,
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              20.0),
+                                                      child: Text(
+                                                        'Login',
+                                                        style: AppStyles
+                                                            .semiBoldHeadline1
+                                                            .apply(
+                                                                color: Colors
+                                                                    .transparent),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 14.h,
+                                                ),
+                                                Obx(
+                                                  () => CustomInput(
+                                                    header: 'Your Mail',
+                                                    hintText: 'Enter Your Mail',
+                                                    svgIcon:
+                                                        'assets/image/auth/svg/mail.svg',
+                                                    focusNode:
+                                                        controller.myFocusNode1,
+                                                    pressed:
+                                                        controller.focus1.value,
+                                                    onChange: (value) {},
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 20.h,
+                                                ),
+                                                CustomButton(
+                                                  title: 'Submit',
+                                                  loading: false,
+                                                  onTap: () {
+                                                    Get.back();
+                                                    Get.bottomSheet(
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.symmetric(
+                                                                horizontal: 20.w),
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          child: Column(
+                                                            children: [
+                                                              Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsets
+                                                                        .symmetric(
+                                                                            vertical:
+                                                                                20.h),
+                                                                    child: InkWell(
+                                                                        onTap: () {
+                                                                          Get.back();
+                                                                        },
+                                                                        child: Image.asset(
+                                                                          'assets/image/auth/img/exit.png',
+                                                                          width:
+                                                                              50.w,
+                                                                        )),
+                                                                  ),
+                                                                  Text(
+                                                                    'Change Password',
+                                                                    style: AppStyles
+                                                                        .semiBoldHeadline1,
+                                                                  ),
+                                                                  Padding(
+                                                                    padding:
+                                                                        const EdgeInsets
+                                                                                .all(
+                                                                            20.0),
+                                                                    child: Text(
+                                                                      'Login',
+                                                                      style: AppStyles
+                                                                          .semiBoldHeadline1
+                                                                          .apply(
+                                                                              color:
+                                                                                  Colors.transparent),
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
+                                                              SizedBox(
+                                                                height: 14.h,
+                                                              ),
+                                                              Obx(
+                                                                () => CustomInput(
+                                                                  header:
+                                                                      'Password',
+                                                                  hintText:
+                                                                      'Enter Your Password',
+                                                                  svgIcon:
+                                                                      'assets/image/auth/svg/pass.svg',
+                                                                  focusNode:
+                                                                      controller
+                                                                          .myFocusNode6,
+                                                                  pressed:
+                                                                      controller
+                                                                          .focus6
+                                                                          .value,
+                                                                  onChange:
+                                                                      (value) {},
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                height: 24.h,
+                                                              ),
+                                                              Obx(
+                                                                () => CustomInput(
+                                                                  header:
+                                                                      'Re Enter Password',
+                                                                  hintText:
+                                                                      'Re Enter Password',
+                                                                  svgIcon:
+                                                                      'assets/image/auth/svg/pass.svg',
+                                                                  focusNode:
+                                                                      controller
+                                                                          .myFocusNode7,
+                                                                  pressed:
+                                                                      controller
+                                                                          .focus7
+                                                                          .value,
+                                                                  onChange:
+                                                                      (value) {},
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                height: 30.h,
+                                                              ),
+                                                              CustomButton(
+                                                                  onTap: () {},
+                                                                  title:
+                                                                      'Change Password'),
+                                                              SizedBox(
+                                                                height: 30.h,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      backgroundColor:
+                                                          AppColors.accent2,
+                                                      elevation: 0,
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          const RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                                topLeft: Radius
+                                                                    .circular(20),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        20)),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
+                                                SizedBox(
+                                                  height: 30.h,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        backgroundColor: AppColors.accent2,
+                                        barrierColor: Colors.redAccent.withOpacity(.6),
+                                        elevation: 0,
+                                        isScrollControlled: true,
+                                        shape: const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(20),
+                                              topRight: Radius.circular(20)),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      'Forget Your Password?',
+                                      style: AppStyles.semiBoldBody2
+                                          .apply(color: AppColors.accent1),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 30.h,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          onClosing: () {},
+                        ),
+                      ),
+                    );
+
+                    /*
+                    Get.bottomSheet(
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(vertical: 20.h),
+                                      child: InkWell(
+                                          onTap: () {
+                                            Get.back();
+                                          },
+                                          child: Image.asset(
+                                            'assets/image/auth/img/exit.png',
+                                            width: 50.w,
+                                          )),
+                                    ),
+                                    Text(
+                                      'Login',
+                                      style: AppStyles.semiBoldHeadline1,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(20.0),
+                                      child: Text(
+                                        'Login',
+                                        style: AppStyles.semiBoldHeadline1
+                                            .apply(color: Colors.transparent),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 14.h,
+                                ),
+                                Obx(
+                                  () => CustomInput(
+                                    header: 'Your Mail',
+                                    hintText: 'Enter Your Mail',
+                                    svgIcon: 'assets/image/auth/svg/mail.svg',
+                                    focusNode: controller.myFocusNode1,
+                                    pressed: controller.focus1.value,
+                                    onChange: (value) {},
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 24.h,
+                                ),
+                                Obx(
+                                  () => CustomInput(
+                                    header: 'Your Password',
+                                    hintText: 'Enter Your Password',
+                                    svgIcon: 'assets/image/auth/svg/pass.svg',
+                                    focusNode: controller.myFocusNode2,
+                                    pressed: controller.focus2.value,
+                                    onChange: (value) {},
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20.h,
+                                ),
+                                CustomButton(
+                                  title: 'Login To Account',
+                                  loading: false,
+                                  onTap: () {
+                                    Get.to(()=> const MAinPage());
+                                  },
+                                ),
+                                SizedBox(
+                                  height: 30.h,
+                                ),
+                                InkWell(
+                                  onTap: (){
+                                    Get.back();
+                                    Get.bottomSheet(
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.symmetric(vertical: 20.h),
+                                                    child: InkWell(
+                                                        onTap: () {
+                                                          Get.back();
+                                                        },
+                                                        child: Image.asset(
+                                                          'assets/image/auth/img/exit.png',
+                                                          width: 50.w,
+                                                        )),
+                                                  ),
+                                                  Text(
+                                                    'Forget Password',
+                                                    style: AppStyles.semiBoldHeadline1,
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets.all(20.0),
+                                                    child: Text(
+                                                      'Login',
+                                                      style: AppStyles.semiBoldHeadline1
+                                                          .apply(color: Colors.transparent),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 14.h,
+                                              ),
+                                              Obx(
+                                                    () => CustomInput(
+                                                  header: 'Your Mail',
+                                                  hintText: 'Enter Your Mail',
+                                                  svgIcon: 'assets/image/auth/svg/mail.svg',
+                                                  focusNode: controller.myFocusNode1,
+                                                  pressed: controller.focus1.value,
+                                                  onChange: (value) {},
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 20.h,
+                                              ),
+                                              CustomButton(
+                                                title: 'Submit',
+                                                loading: false,
+                                                onTap: () {
+                                                  Get.back();
+                                                  Get.bottomSheet(
+                                                    Padding(
+                                                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                                                      child: SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            Row(
+                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsets.symmetric(vertical: 20.h),
+                                                                  child: InkWell(
+                                                                      onTap: () {
+                                                                        Get.back();
+                                                                      },
+                                                                      child: Image.asset(
+                                                                        'assets/image/auth/img/exit.png',
+                                                                        width: 50.w,
+                                                                      )),
+                                                                ),
+                                                                Text(
+                                                                  'Change Password',
+                                                                  style: AppStyles.semiBoldHeadline1,
+                                                                ),
+                                                                Padding(
+                                                                  padding: const EdgeInsets.all(20.0),
+                                                                  child: Text(
+                                                                    'Login',
+                                                                    style: AppStyles.semiBoldHeadline1
+                                                                        .apply(color: Colors.transparent),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            SizedBox(
+                                                              height: 14.h,
+                                                            ),
+                                                            Obx(
+                                                                  () => CustomInput(
+                                                                header: 'Password',
+                                                                hintText: 'Enter Your Password',
+                                                                svgIcon: 'assets/image/auth/svg/pass.svg',
+                                                                focusNode: controller.myFocusNode6,
+                                                                pressed: controller.focus6.value,
+                                                                onChange: (value) {},
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              height: 24.h,
+                                                            ),
+                                                            Obx(
+                                                                  () => CustomInput(
+                                                                header: 'Re Enter Password',
+                                                                hintText: 'Re Enter Password',
+                                                                svgIcon: 'assets/image/auth/svg/pass.svg',
+                                                                focusNode: controller.myFocusNode7,
+                                                                pressed: controller.focus7.value,
+                                                                onChange: (value) {},
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              height: 30.h,
+                                                            ),
+                                                            CustomButton(
+                                                                onTap: (){},
+                                                                title: 'Change Password'
+                                                            ),
+                                                            SizedBox(
+                                                              height: 30.h,
                                                             ),
                                                           ],
                                                         ),
-                                                        SizedBox(
-                                                          height: 14.h,
-                                                        ),
-                                                        Obx(
-                                                              () => CustomInput(
-                                                            header: 'Password',
-                                                            hintText: 'Enter Your Password',
-                                                            svgIcon: 'assets/image/auth/svg/pass.svg',
-                                                            focusNode: controller.myFocusNode6,
-                                                            pressed: controller.focus6.value,
-                                                            onChange: (value) {},
-                                                          ),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 24.h,
-                                                        ),
-                                                        Obx(
-                                                              () => CustomInput(
-                                                            header: 'Re Enter Password',
-                                                            hintText: 'Re Enter Password',
-                                                            svgIcon: 'assets/image/auth/svg/pass.svg',
-                                                            focusNode: controller.myFocusNode7,
-                                                            pressed: controller.focus7.value,
-                                                            onChange: (value) {},
-                                                          ),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 30.h,
-                                                        ),
-                                                        CustomButton(
-                                                            onTap: (){},
-                                                            title: 'Change Password'
-                                                        ),
-                                                        SizedBox(
-                                                          height: 30.h,
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                ),
-                                                backgroundColor: AppColors.accent2,
-                                                elevation: 0,
-                                                isScrollControlled: true,
-                                                shape: const RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.only(
-                                                      topLeft: Radius.circular(20),
-                                                      topRight: Radius.circular(20)),
-                                                ),
-                                              );
-                                            },
+                                                    backgroundColor: AppColors.accent2,
+                                                    elevation: 0,
+                                                    isScrollControlled: true,
+                                                    shape: const RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.only(
+                                                          topLeft: Radius.circular(20),
+                                                          topRight: Radius.circular(20)),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                              SizedBox(
+                                                height: 30.h,
+                                              ),
+                                            ],
                                           ),
-                                          SizedBox(
-                                            height: 30.h,
-                                          ),
-                                        ],
+                                        ),
                                       ),
-                                    ),
+                                      backgroundColor: AppColors.accent2,
+                                      elevation: 0,
+                                      isScrollControlled: true,
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Forget Your Password?',
+                                    style: AppStyles.semiBoldBody2
+                                        .apply(color: AppColors.accent1),
                                   ),
-                                  backgroundColor: AppColors.accent2,
-                                  elevation: 0,
-                                  isScrollControlled: true,
-                                  shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20)),
-                                  ),
-                                );
-                              },
-                              child: Text(
-                                'Forget Your Password?',
-                                style: AppStyles.semiBoldBody2
-                                    .apply(color: AppColors.accent1),
-                              ),
+                                ),
+                                SizedBox(
+                                  height: 30.h,
+                                ),
+                              ],
                             ),
-                            SizedBox(
-                              height: 30.h,
-                            ),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                    backgroundColor: AppColors.accent2,
-                    elevation: 0,
-                    isScrollControlled: true,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20)),
-                    ),
-                  );
-                },
+                      backgroundColor: AppColors.accent2,
+                      elevation: 0,
+                      isScrollControlled: true,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20)),
+                      ),
+                    );*/
+                  },
+                ),
               ),
               LoginBox(
                 svgIcon: 'assets/image/auth/svg/create.svg',

@@ -90,7 +90,8 @@ class File extends StatelessWidget {
         actions: [
           GestureDetector(
             onTap: (){
-              Get.to(()=>const SearchFile());
+           //   Get.to(()=>const SearchFile());
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchFile(),));
             },
             child: Padding(
               padding:  EdgeInsets.only(right: 6.w),

@@ -1,12 +1,12 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:icloudbox/Utils/colors.dart';
+import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:get/get.dart';
-import '../../../../Utils/colors.dart';
-import '../../../../Utils/text_styls.dart';
 
 class ShareFileWidget extends StatelessWidget {
   final String? img;
