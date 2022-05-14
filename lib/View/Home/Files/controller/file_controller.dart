@@ -13,6 +13,9 @@ import '../component/rename_dialog_widget.dart';
 import '../component/share_bottomsheet.dart';
 
 class FilesController extends GetxController{
+
+  final PageController pageController = PageController();
+
   // final String icon;
   // FilesController(this.icon);
   final selectedIndex = 0.obs;

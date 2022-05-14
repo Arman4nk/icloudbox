@@ -34,7 +34,7 @@ class CustomInput extends StatelessWidget {
   final DropdownButtonHideUnderline? dropDown;
   final FocusNode? focusNode;
   final bool? pressed;
-
+  final Widget? suffix;
   CustomInput(
       {Key? key,
         this.hintText,
@@ -63,8 +63,9 @@ class CustomInput extends StatelessWidget {
         this.onComplete,
         this.svgColor,
         this.header,
-       required this.focusNode,
-       required this.pressed,
+        this.suffix,
+        this.focusNode,
+        this.pressed,
         this.height})
       : super(key: key);
 
@@ -84,6 +85,7 @@ class CustomInput extends StatelessWidget {
           ),
           SizedBox(height: 10.h,),
           TextFormField(
+            cursorColor: AppColors.textPrimary,
             focusNode: focusNode,
             textInputAction: TextInputAction.next,
             minLines: minlines ?? 1,
@@ -100,39 +102,39 @@ class CustomInput extends StatelessWidget {
             decoration: InputDecoration(
               errorStyle: const TextStyle(height: 0),
               contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
-              prefixIcon: dropDown ??
+              prefixIcon: (dropDown ??
                   IconButton(
                       color: colorIcon ?? AppColors.secondary2,
                       onPressed: onIconPress,
                       icon: svgIcon != null
                           ? SvgPicture.asset(svgIcon!,color: svgColor,)
-                          : Icon(iconInput)),
-              suffixIcon: IconButton(
+                          : Icon(iconInput))),
+              suffixIcon:suffix?? IconButton(
                   color: colorIcon ?? const Color(0XFF563746),
                   onPressed: onIconPress,
                   icon: Icon(iconInputRight)),
               filled: true,
-              fillColor:pressed!? AppColors.textAccent:AppColors.primary1,
+              fillColor:pressed==null?AppColors.primary1 :(pressed!? AppColors.textAccent:AppColors.primary1),
               focusColor:AppColors.accent2,
               hintText: hintText,
               hintStyle: AppStyles.regularBody1
                   .apply(color: AppColors.secondary2),
               enabledBorder: OutlineInputBorder(
-                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(14)),
                 borderSide: BorderSide(
                   color: borderColor ?? AppColors.primary3,
                 ),
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.red),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(14),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.red),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(14),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(14)),
                 borderSide: BorderSide(
                   color: borderColor ?? AppColors.primary3,
                 ),

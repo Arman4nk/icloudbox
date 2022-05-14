@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:icloudbox/View/Home/Files/component/all_file.dart';
+import 'package:icloudbox/View/Home/Files/page/search_file.dart';
 import '../../../../Utils/colors.dart';
 import '../../../../Utils/text_styls.dart';
-import '../../../../Widgets/file_widget.dart';
+import '../component/your_files.dart';
 import '../controller/file_controller.dart';
 
 class File extends StatelessWidget {
@@ -14,6 +15,18 @@ class File extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(FilesController());
     return Scaffold(
+      floatingActionButton: GestureDetector(
+        onTap: (){
+
+        },
+        child: Container(
+          padding: const EdgeInsets.all(15),
+            decoration:const BoxDecoration(
+              color: AppColors.accent1,
+              shape: BoxShape.circle,
+            )
+            ,child: Icon(Icons.add,color: AppColors.textAccent,size: 30,)),
+      ),
       appBar: AppBar(
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -38,6 +51,7 @@ class File extends StatelessWidget {
                       SizedBox(width: 8.w,),
                       InkWell(
                           onTap: (){
+                            controller.pageController.jumpToPage(0);
                             controller.setIndex(0);
                           },
                           child: Text('All Files',style: AppStyles.semiBoldBody1.apply(color:controller.selectedIndex.value==0 ? AppColors.accent1: AppColors.secondary2),)),
@@ -57,6 +71,8 @@ class File extends StatelessWidget {
                       SizedBox(width: 8.w,),
                       InkWell(
                           onTap: (){
+                            controller.pageController.jumpToPage(1);
+
                             controller.setIndex(1);
                           },
                           child: Text('My Files',style: AppStyles.semiBoldBody1.apply(color:controller.selectedIndex.value==1 ? AppColors.accent1:AppColors.secondary2),)),
@@ -72,9 +88,14 @@ class File extends StatelessWidget {
         title: Text('Home',style: AppStyles.semiBoldTitle3,),
         leadingWidth: 0,
         actions: [
-          Padding(
-            padding:  EdgeInsets.only(right: 6.w),
-            child: Image.asset('assets/image/home/img/search.png'),
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>const SearchFile());
+            },
+            child: Padding(
+              padding:  EdgeInsets.only(right: 6.w),
+              child: Image.asset('assets/image/home/img/search.png'),
+            ),
           ),
           Padding(
             padding:  EdgeInsets.only(right: 20.w),
@@ -99,42 +120,15 @@ class File extends StatelessWidget {
           ),
           Padding(
             padding:  EdgeInsets.only(left: 20.w,right: 14.w),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox( height: 25.h,),
-                  Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Text('All Files',style: AppStyles.semiBoldHeadline2,),
-                  ),
-                  SizedBox( height: 20.h,),
-                   FileWidget(
-                     img: 'assets/image/temp/svg/document_file.svg',
-                    subtitle: '4 Folder  - 124MB',
-                    title: 'Broucelee Va Baradaran',
-                    slideOption: controller.slideFileOption,
-
-                  ),
-                   FileWidget(
-                    img: 'assets/image/temp/svg/document_file.svg',
-                    subtitle: '4 Folder  - 124MB',
-                    title: 'Documents',
-                    subTitleIcon: 'assets/image/file/svg/group.svg',
-                    slideOption: controller.slideFileOption,
-
-                  ),
-                   FileWidget(
-                    img: 'assets/image/temp/svg/document_file.svg',
-                    subtitle: '4 Folder  - 124MB',
-                    title: 'Broucelee Va Baradaran',
-                    subTitleIcon: 'assets/image/file/svg/star.svg',
-                    slideOption: controller.slideFileOption,
-
-
-                  ),
-                ],
-              ),
+            child: PageView(
+              controller: controller.pageController,
+              onPageChanged: (index){
+                controller.selectedIndex(index);
+              },
+              children: const [
+                AllFiles(),
+                YourFiles(),
+              ],
             ),
           )
         ],
