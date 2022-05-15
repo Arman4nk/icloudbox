@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
+import 'package:icloudbox/Utils/tools.dart';
 import 'package:icloudbox/View/Home/Files/component/rename_dialog_widget.dart';
 import 'package:icloudbox/View/Home/Files/component/upload_file_bottomsheet.dart';
 import 'package:icloudbox/Widgets/blur_widget/blur_bottom_sheet.dart';
@@ -59,6 +60,7 @@ class AddFilePage extends StatelessWidget {
                     title: 'folder',
                     image: 'assets/image/file/img/folder.png',
                     onTap: () {
+                      Get.back();
                       Get.dialog(
                         const BlurDialog(
                           child: RenameDialogWidget(
@@ -75,18 +77,8 @@ class AddFilePage extends StatelessWidget {
                     title: 'Upload',
                     image: 'assets/image/file/img/upload.png',
                     onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        useRootNavigator: true,
-                        enableDrag: false,
-                        elevation: 0,
-                        isDismissible: true,
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        builder: (context) => const BlurButtomsheet(
-                          child: UploadFileBottomSheet(),
-                        ),
-                      );
+                      Get.back();
+                      Tools.showModalBottomSheet(context: context, child:  const UploadFileBottomSheet());
                     },
                   ),
                 ),
@@ -94,7 +86,10 @@ class AddFilePage extends StatelessWidget {
                   child: AddFileWidget(
                     title: 'Camera',
                     image: 'assets/image/file/img/camera.png',
-                    onTap: () {},
+                    onTap: () {
+                      Get.back();
+
+                    },
                   ),
                 ),
               ],
