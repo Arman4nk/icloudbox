@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../Model/menu_item_model.dart';
 import '../../../../Utils/colors.dart';
-import '../component/blur_dialog.dart';
+import '../../../../Widgets/blur_widget/blur_dialog.dart';
 import '../component/info_bottomsheet.dart';
 import '../component/rename_dialog_widget.dart';
 import '../component/share_bottomsheet.dart';

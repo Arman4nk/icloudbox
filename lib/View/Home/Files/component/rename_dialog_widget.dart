@@ -6,7 +6,8 @@ import 'package:get/get.dart';
 import '../../../../Utils/colors.dart';
 
 class RenameDialogWidget extends StatelessWidget {
-  const RenameDialogWidget({Key? key}) : super(key: key);
+  final String? title;
+  const RenameDialogWidget({Key? key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +28,17 @@ class RenameDialogWidget extends StatelessWidget {
                 width: 10.w,
               ),
               Flexible(
-                child: TextField(
+                child: TextFormField(
                   style: AppStyles.semiBoldBody1,
                   autofocus: true,
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Enter Your Name',
+                      hintText: title??'Enter Your Name',
                     hintStyle: AppStyles.semiBoldBody1.apply(color: AppColors.secondary2)
                   ),
+                  onEditingComplete: (){
+                    Get.back();
+                  },
                 ),
               ),
               GestureDetector(

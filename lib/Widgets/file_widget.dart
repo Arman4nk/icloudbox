@@ -17,6 +17,7 @@ class FileWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final String? subTitleIcon;
+//  final GlobalKey globalKey;
   final List<SlidableAction> slideOption;
 
   const FileWidget({
@@ -26,6 +27,7 @@ class FileWidget extends StatelessWidget {
     this.subTitleIcon,
     this.imgImage,
     required this.slideOption,
+    // required this.globalKey,
     Key? key,
   }) : super(key: key);
 
@@ -40,7 +42,6 @@ class FileWidget extends StatelessWidget {
         ),
         ).toList(),
         onChanged:controller.onChangeMenu,
-
         openWithLongPress: true,
         customItemsIndexes: const [6],
         customItemsHeight: 8,

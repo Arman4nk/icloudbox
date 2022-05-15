@@ -8,6 +8,7 @@ import '../controller/file_controller.dart';
 class AllFiles extends StatelessWidget {
   const AllFiles({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     final controller =Get.find<FilesController>();
@@ -26,7 +27,6 @@ class AllFiles extends StatelessWidget {
             subtitle: '4 Folder  - 124MB',
             title: 'Broucelee Va Baradaran',
             slideOption: controller.slideFileOption,
-
           ),
           FileWidget(
             img: 'assets/image/temp/svg/document_file.svg',

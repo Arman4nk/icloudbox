@@ -39,7 +39,7 @@ class SearchFile extends StatelessWidget {
                         suffix:controller.isTyping.value? Padding(
                           padding:  EdgeInsets.all(10.w),
                           child: Image.asset('assets/image/file/img/rename_button.png',width: 34.w,),
-                        ):SizedBox(),
+                        ):const SizedBox(),
                         onChange: (value){
                           controller.isTyping(true);
                           if(value==''){
@@ -83,7 +83,7 @@ class SearchFile extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox( height: 25.h,),
+                  SizedBox(height: 25.h,),
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 10.w),
                     child: Text('All Files',style: AppStyles.semiBoldHeadline2,),
@@ -94,7 +94,6 @@ class SearchFile extends StatelessWidget {
                     subtitle: 'No Folder - 0KB',
                     title: 'photos',
                     search: 'oto',
-
                   ),
                   const SearchItem(
                     img: 'assets/image/temp/svg/document_file.svg',

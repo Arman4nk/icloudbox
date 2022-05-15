@@ -119,7 +119,7 @@ class SearchItem extends StatelessWidget {
 
       List<TextSpan> listSpans = [];
       splitString.sublist(1).forEach((element) {
-        listSpans.add(TextSpan(text: search , style: const TextStyle(backgroundColor: Colors.amber)));
+        listSpans.add(TextSpan(text: search , style: const TextStyle(backgroundColor: AppColors.accent3)));
         listSpans.add(TextSpan(text: element));
       });
 

@@ -10,11 +10,15 @@ class CustomButton extends StatelessWidget {
   final String title;
   final void Function() onTap;
   final bool? loading;
+  final Color? backColor;
+  final Color? textColor;
 
   const CustomButton({
     required this.onTap,
     required this.title,
     this.loading,
+    this.textColor,
+    this.backColor,
     Key? key,
   }) : super(key: key);
 
@@ -25,13 +29,13 @@ class CustomButton extends StatelessWidget {
       child: Container(
         padding:loading==true? EdgeInsets.only(top: 10.5.h,bottom: 10.5.h): EdgeInsets.only(bottom: 27.h,top: 25.h),
         decoration: BoxDecoration(
-          color: AppColors.primary2,
+          color:backColor?? AppColors.primary2,
           borderRadius: BorderRadius.circular(14),
         ),
         child:loading==true?SpinKitCircle(color: AppColors.accent2,size: 50.h,)
             : Center(
           child: Text(
-            title,style: AppStyles.semiBoldBody1.apply(color: AppColors.accent2),
+            title,style: AppStyles.semiBoldBody1.apply(color:textColor?? AppColors.accent2),
           ),
         ),
       ),

@@ -5,7 +5,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:icloudbox/Model/menu_item_model.dart';
-import 'package:icloudbox/View/Home/Files/component/blur_dialog.dart';
+import 'package:icloudbox/Widgets/blur_widget/blur_dialog.dart';
 
 import '../../../../Utils/colors.dart';
 import '../component/info_bottomsheet.dart';
@@ -13,7 +13,6 @@ import '../component/rename_dialog_widget.dart';
 import '../component/share_bottomsheet.dart';
 
 class FilesController extends GetxController{
-
   final PageController pageController = PageController();
 
   // final String icon;
