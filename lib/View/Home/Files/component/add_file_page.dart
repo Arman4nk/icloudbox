@@ -32,7 +32,7 @@ class AddFilePage extends StatelessWidget {
                         Get.back();
                       },
                       child: Image.asset(
-                        'assets/image/auth/img/exit.png',
+                        'assets/image/file/img/back.png',
                         width: 50.w,
                       )),
                 ),
@@ -72,6 +72,7 @@ class AddFilePage extends StatelessWidget {
                     },
                   ),
                 ),
+                SizedBox(width: 8.w,),
                 Expanded(
                   child: AddFileWidget(
                     title: 'Upload',
@@ -82,13 +83,13 @@ class AddFilePage extends StatelessWidget {
                     },
                   ),
                 ),
+                SizedBox(width: 8.w,),
                 Expanded(
                   child: AddFileWidget(
                     title: 'Camera',
                     image: 'assets/image/file/img/camera.png',
                     onTap: () {
                       Get.back();
-
                     },
                   ),
                 ),

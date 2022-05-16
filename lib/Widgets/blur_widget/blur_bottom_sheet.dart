@@ -25,6 +25,7 @@ class BlurButtomsheet extends StatelessWidget {
               topRight: Radius.circular(20)),
         ),
         onClosing: (){},
+        enableDrag: false,
         builder: (context) => child,
       ),
     );

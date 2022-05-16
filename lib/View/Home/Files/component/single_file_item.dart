@@ -8,7 +8,7 @@ import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:get/get.dart';
 
-class ChooseLocationItem extends StatelessWidget {
+class SingleFileItem extends StatelessWidget {
   final String? img;
   final String? imgImage;
   final String title;
@@ -17,7 +17,7 @@ class ChooseLocationItem extends StatelessWidget {
   final String? subTitleIcon2;
   final void Function() onTap;
 
-  const ChooseLocationItem({
+  const SingleFileItem({
     required this.title,
     this.img,
     required this.subtitle,

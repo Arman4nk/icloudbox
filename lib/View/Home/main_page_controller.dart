@@ -30,8 +30,20 @@ class MainPageController extends GetxController{
         onGenerateInitialRoutes: (navigator, initialRoute) => <Route>[
           MaterialPageRoute(builder: (context) => const File(),)
         ],),
-      const Shared(),
-      const Setting(),
+      Navigator(
+        key: sharedKey,
+        onGenerateInitialRoutes: (navigator,initialRoute) => <Route>[
+          MaterialPageRoute(builder: (context) => const Shared(),)
+
+        ],
+      ),
+      Navigator(
+        key: sharedKey,
+        onGenerateInitialRoutes: (navigator,initialRoute) => <Route>[
+          MaterialPageRoute(builder: (context) => const Setting(),)
+
+        ],
+      ),
     ]);
     super.onInit();
   }
@@ -46,6 +58,18 @@ class MainPageController extends GetxController{
         break;
       case 1 :
         if(fileKey.currentState!.canPop()){
+          fileKey.currentState!.pop();
+          return false;
+        }
+        break;
+      case 2 :
+        if(sharedKey.currentState!.canPop()){
+          fileKey.currentState!.pop();
+          return false;
+        }
+        break;
+      case 3 :
+        if(settingKey.currentState!.canPop()){
           fileKey.currentState!.pop();
           return false;
         }
@@ -67,6 +91,18 @@ class MainPageController extends GetxController{
           key: fileKey,
           onGenerateInitialRoutes: (navigator, initialRoute) => <Route>[
             MaterialPageRoute(builder: (context) => const File(),)
+          ],);
+      case 2 :
+        return  Navigator(
+          key: sharedKey,
+          onGenerateInitialRoutes: (navigator, initialRoute) => <Route>[
+            MaterialPageRoute(builder: (context) => const Shared(),)
+          ],);
+      case 3 :
+        return  Navigator(
+          key: settingKey,
+          onGenerateInitialRoutes: (navigator, initialRoute) => <Route>[
+            MaterialPageRoute(builder: (context) => const Setting(),)
           ],);
 
   }

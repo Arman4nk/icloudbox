@@ -32,7 +32,7 @@ class RenameUploadFileBottomSheet extends StatelessWidget {
                         Get.back();
                       },
                       child: Image.asset(
-                        'assets/image/auth/img/exit.png',
+                        'assets/image/file/img/back.png',
                         width: 50.w,
                       )),
                 ),

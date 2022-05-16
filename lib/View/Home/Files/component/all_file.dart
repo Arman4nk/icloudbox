@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:icloudbox/View/Home/Files/page/single_file.dart';
 import '../../../../Utils/text_styls.dart';
 import '../../../../Widgets/file_widget.dart';
 import '../controller/file_controller.dart';
@@ -27,6 +28,12 @@ class AllFiles extends StatelessWidget {
             subtitle: '4 Folder  - 124MB',
             title: 'Broucelee Va Baradaran',
             slideOption: controller.slideFileOption,
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SingleFile(title: 'Broucelee Va Baradaran'),
+              ));
+
+            },
           ),
           FileWidget(
             img: 'assets/image/temp/svg/document_file.svg',
@@ -34,6 +41,11 @@ class AllFiles extends StatelessWidget {
             title: 'Documents',
             subTitleIcon: 'assets/image/file/svg/group.svg',
             slideOption: controller.slideFileOption,
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SingleFile(title: 'Broucelee Va Baradaran'),
+              ));
+            },
 
           ),
           FileWidget(
@@ -43,6 +55,11 @@ class AllFiles extends StatelessWidget {
             subTitleIcon: 'assets/image/file/svg/star.svg',
             slideOption: controller.slideFileOption,
 
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SingleFile(title: 'Broucelee Va Baradaran'),
+              ));
+            },
 
           ),
         ],

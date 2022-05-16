@@ -20,7 +20,7 @@ class AddFileWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10.h),
+        // margin: EdgeInsets.symmetric(horizontal: 10.h),
         padding: EdgeInsets.symmetric(horizontal: 34.w, vertical: 22.h),
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.primary3),

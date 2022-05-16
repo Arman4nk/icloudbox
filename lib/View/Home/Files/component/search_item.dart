@@ -74,7 +74,7 @@ class SearchItem extends StatelessWidget {
                   color: AppColors.accent2,
                   border: Border.all(color: AppColors.primary3)),
               child: Padding(
-                padding: EdgeInsets.only(top: 10.h, bottom: 10.h, right: 20.w),
+                padding: EdgeInsets.only(top: 10.h, bottom: 10.h,),
                 child: ListTile(
                   leading: img != null
                       ? SvgPicture.asset(img!)

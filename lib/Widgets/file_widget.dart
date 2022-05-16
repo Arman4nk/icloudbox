@@ -17,6 +17,8 @@ class FileWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final String? subTitleIcon;
+  final String? subTitleIcon2;
+  final void Function() onTap;
 //  final GlobalKey globalKey;
   final List<SlidableAction> slideOption;
 
@@ -25,8 +27,10 @@ class FileWidget extends StatelessWidget {
      this.img,
     required this.subtitle,
     this.subTitleIcon,
+    this.subTitleIcon2,
     this.imgImage,
     required this.slideOption,
+    required this.onTap,
     // required this.globalKey,
     Key? key,
   }) : super(key: key);
@@ -81,46 +85,55 @@ class FileWidget extends StatelessWidget {
                       color: AppColors.primary3),
                 ),
               ),
-              Container(
-                width: ScreenUtil().screenWidth,
-                margin: EdgeInsets.only(bottom: 8.h, right: 6),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: AppColors.accent2,
-                  border: Border.all(color: AppColors.primary3)
-                ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(top: 10.h, bottom: 10.h, right: 20.w),
-                  child: ListTile(
-                    leading:img!=null? SvgPicture.asset(img!) : ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(imgImage!)),
-                    title: Text(
-                      title,
-                      style: AppStyles.semiBoldBody1,
-                    ),
-                    subtitle: Row(
-                      children: [
-                        if (subTitleIcon != null)
-                          SvgPicture.asset(subTitleIcon!),
-                        if (subTitleIcon != null)
-                          SizedBox(
-                            width: 5.w,
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  width: ScreenUtil().screenWidth,
+                  margin: EdgeInsets.only(bottom: 8.h, right: 6),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: AppColors.accent2,
+                    border: Border.all(color: AppColors.primary3)
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.only(top: 10.h, bottom: 10.h,),
+                    child: ListTile(
+                      leading:img!=null? SvgPicture.asset(img!) : ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                          child: Image.asset(imgImage!)),
+                      title: Text(
+                        title,
+                        style: AppStyles.semiBoldBody1,
+                      ),
+                      subtitle: Row(
+                        children: [
+                          if (subTitleIcon != null)
+                            SvgPicture.asset(subTitleIcon!),
+                          if (subTitleIcon2 != null)
+                            SizedBox(
+                              width: 5.w,
+                            ),
+                          if (subTitleIcon2 != null)
+                            SvgPicture.asset(subTitleIcon2!),
+                          if (subTitleIcon != null)
+                            SizedBox(
+                              width: 5.w,
+                            ),
+                          Text(
+                            subtitle,
+                            style: AppStyles.regularBody3
+                                .apply(color: AppColors.secondary2),
                           ),
-                        Text(
-                          subtitle,
-                          style: AppStyles.regularBody3
-                              .apply(color: AppColors.secondary2),
-                        ),
-                      ],
-                    ),
-                    trailing: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.w),
-                      child:
-                          SvgPicture.asset('assets/image/file/svg/arrow.svg'),
-                    ),
+                        ],
+                      ),
+                      trailing: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.w),
+                        child:
+                            SvgPicture.asset('assets/image/file/svg/arrow.svg'),
+                      ),
 
+                    ),
                   ),
                 ),
               ),

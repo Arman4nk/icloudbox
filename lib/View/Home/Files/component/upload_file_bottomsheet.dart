@@ -34,7 +34,7 @@ class UploadFileBottomSheet extends StatelessWidget {
                         Get.back();
                       },
                       child: Image.asset(
-                        'assets/image/auth/img/exit.png',
+                        'assets/image/file/img/back.png',
                         width: 50.w,
                       )),
                 ),
@@ -68,7 +68,6 @@ class UploadFileBottomSheet extends StatelessWidget {
             SizedBox(height: 6.h,),
             GestureDetector(
               onTap: (){
-                Get.back();
                 Tools.showModalBottomSheet(
                   context: context,
                   useRootNavigator: false,

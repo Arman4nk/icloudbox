@@ -36,7 +36,7 @@ class ChooseLocationSingleBottomSheet extends StatelessWidget {
                           Get.back();
                         },
                         child: Image.asset(
-                          'assets/image/auth/img/exit.png',
+                          'assets/image/file/img/back.png',
                           width: 50.w,
                         )),
                   ),
@@ -103,8 +103,6 @@ class ChooseLocationSingleBottomSheet extends StatelessWidget {
                         title: 'Documents',
                         subTitleIcon: 'assets/image/file/svg/star.svg',
                         onTap: (){},
-
-
                       ),
                       ChooseLocationItem(
                         img: 'assets/image/temp/svg/document_file.svg',
