@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:icloudbox/Model/file_item_model.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/View/Home/Files/component/add_file_page.dart';
@@ -9,7 +10,7 @@ import 'package:icloudbox/View/Home/Files/component/search_item.dart';
 import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:icloudbox/View/Home/Files/page/search_file.dart';
 import 'package:icloudbox/Widgets/blur_widget/blur_bottom_sheet.dart';
-import 'package:icloudbox/Widgets/file_widget.dart';
+import 'package:icloudbox/Widgets/fileItem/show_file_item.dart';
 
 class SingleFileDetails extends StatelessWidget {
   final String title;
@@ -115,7 +116,15 @@ class SingleFileDetails extends StatelessWidget {
                     child: Text('List',style: AppStyles.semiBoldHeadline2,),
                   ),
                   SizedBox( height: 20.h,),
-                  FileWidget(
+                  ShowFileItem(
+                    itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                        img: 'assets/image/temp/svg/document_file.svg',
+                        itemKey:GlobalKey()),
+                    slideOption: controller.slideFileOption,
+                    onTap: (){},
+
+                  ),
+              /*    ShowFileItem(
                     imgImage: 'assets/image/temp/img/pro1.png',
                     subtitle: '8MB - 22 Feb 2022',
                     title: 'Photos',
@@ -123,7 +132,7 @@ class SingleFileDetails extends StatelessWidget {
 
                     onTap: (){},
                   ),
-                  FileWidget(
+                  ShowFileItem(
                     imgImage: 'assets/image/temp/img/pro2.jpg',
                     subtitle: '8MB - 22 Feb 2022',
                     title: 'Arman.PNG',
@@ -133,13 +142,13 @@ class SingleFileDetails extends StatelessWidget {
 
                     onTap: (){},
                   ),
-                  FileWidget(
+                  ShowFileItem(
                     imgImage: 'assets/image/temp/img/pro1.png',
                     subtitle: '8MB - 22 Feb 2022',
                     title: 'Photos',
                     slideOption: controller.slideFileOption,
                     onTap: (){},
-                  ),
+                  ),*/
                 ],
               ),
             ),

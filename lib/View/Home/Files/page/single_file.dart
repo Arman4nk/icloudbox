@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:icloudbox/Model/file_item_model.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/View/Home/Files/component/add_file_page.dart';
@@ -10,7 +11,7 @@ import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:icloudbox/View/Home/Files/page/search_file.dart';
 import 'package:icloudbox/View/Home/Files/page/single_file_details.dart';
 import 'package:icloudbox/Widgets/blur_widget/blur_bottom_sheet.dart';
-import 'package:icloudbox/Widgets/file_widget.dart';
+import 'package:icloudbox/Widgets/fileItem/show_file_item.dart';
 
 class SingleFile extends StatelessWidget {
   final String title;
@@ -115,7 +116,15 @@ class SingleFile extends StatelessWidget {
                     child: Text('List',style: AppStyles.semiBoldHeadline2,),
                   ),
                   SizedBox( height: 20.h,),
-                  FileWidget(
+                  ShowFileItem(
+                    itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                        img: 'assets/image/temp/svg/document_file.svg',
+                        itemKey:GlobalKey()),
+                    slideOption: controller.slideFileOption,
+                    onTap: (){},
+
+                  ),
+               /*   ShowFileItem(
                     img: 'assets/image/temp/svg/document_file.svg',
                     subtitle: '4 Folder  - 124MB',
                     title: 'Documents',
@@ -127,7 +136,7 @@ class SingleFile extends StatelessWidget {
                       ));
                     },
                   ),
-                  FileWidget(
+                  ShowFileItem(
                     img: 'assets/image/temp/svg/document_file.svg',
                     subtitle: 'No Folder - 0KB',
                     title: 'Photos',
@@ -138,7 +147,7 @@ class SingleFile extends StatelessWidget {
                       ));
                     },
                   ),
-                  FileWidget(
+                  ShowFileItem(
                     img: 'assets/image/temp/svg/document_file.svg',
                     subtitle: '4 Folder  - 124MB',
                     title: 'Mamad Salahshoor',
@@ -149,7 +158,7 @@ class SingleFile extends StatelessWidget {
                         builder: (context) => SingleFileDetails(title: 'Mamad Salahshoor'),
                       ));
                     },
-                  ),
+                  ),*/
                 ],
               ),
             ),

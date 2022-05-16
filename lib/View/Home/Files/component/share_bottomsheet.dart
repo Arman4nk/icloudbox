@@ -6,7 +6,7 @@ import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 
 import '../../../../Utils/text_styls.dart';
 import '../../../../Widgets/custom_input.dart';
-import '../../../../Widgets/file_widget.dart';
+import '../../../../Widgets/fileItem/show_file_item.dart';
 class ShareBottomSheet extends StatelessWidget {
   const ShareBottomSheet({Key? key}) : super(key: key);
 

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:icloudbox/Model/file_item_model.dart';
 import 'package:icloudbox/View/Home/Files/page/single_file.dart';
 import '../../../../Utils/text_styls.dart';
-import '../../../../Widgets/file_widget.dart';
+import '../../../../Widgets/fileItem/show_file_item.dart';
 import '../controller/file_controller.dart';
 
 class YourFiles extends StatelessWidget {
@@ -22,15 +23,15 @@ class YourFiles extends StatelessWidget {
             child: Text('Your Files',style: AppStyles.semiBoldHeadline2,),
           ),
           SizedBox( height: 20.h,),
-          FileWidget(
-            img: 'assets/image/temp/svg/document_file.svg',
-            subtitle: 'No Folder - 0KB',
-            title: 'photos',
+          ShowFileItem(
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:GlobalKey()),
             slideOption: controller.slideFileOption,
             onTap: (){},
 
           ),
-          FileWidget(
+        /*  ShowFileItem(
             img: 'assets/image/temp/svg/document_file.svg',
             subtitle: '4 Folder  - 124MB',
             title: 'Documents',
@@ -39,7 +40,7 @@ class YourFiles extends StatelessWidget {
             onTap: (){},
 
           ),
-          FileWidget(
+          ShowFileItem(
             img: 'assets/image/temp/svg/document_file.svg',
             subtitle: '4 Folder  - 124MB',
             title: 'Broucelee Va Baradaran',
@@ -53,7 +54,7 @@ class YourFiles extends StatelessWidget {
             },
 
           ),
-          FileWidget(
+          ShowFileItem(
             img: 'assets/image/temp/svg/document_file.svg',
             subtitle: '4 Folder  - 20',
             title: 'Broucelee Va Khaharan',
@@ -66,7 +67,7 @@ class YourFiles extends StatelessWidget {
             },
 
           ),
-          FileWidget(
+          ShowFileItem(
             img: 'assets/image/temp/svg/document_file.svg',
             subtitle: '4 Folder  - 124MB',
             title: 'Broucelee Va Baradaran',
@@ -78,7 +79,7 @@ class YourFiles extends StatelessWidget {
               ));
             },
 
-          ),
+          ),*/
         ],
       ),
     );

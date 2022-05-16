@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:icloudbox/Model/file_item_model.dart';
 import 'package:icloudbox/View/Home/Files/page/single_file.dart';
 import '../../../../Utils/text_styls.dart';
-import '../../../../Widgets/file_widget.dart';
+import '../../../../Widgets/fileItem/show_file_item.dart';
 import '../controller/file_controller.dart';
 
 class AllFiles extends StatelessWidget {
@@ -12,6 +13,7 @@ class AllFiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final a = GlobalKey();
     final controller =Get.find<FilesController>();
     return SingleChildScrollView(
       child: Column(
@@ -23,7 +25,16 @@ class AllFiles extends StatelessWidget {
             child: Text('All Files',style: AppStyles.semiBoldHeadline2,),
           ),
           SizedBox( height: 20.h,),
-          FileWidget(
+          ShowFileItem(
+            key: a,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:a),
+            slideOption: controller.slideFileOption,
+            onTap: (){},
+
+          ),
+        /*  ShowFileItem(
             img: 'assets/image/temp/svg/document_file.svg',
             subtitle: '4 Folder  - 124MB',
             title: 'Broucelee Va Baradaran',
@@ -35,7 +46,7 @@ class AllFiles extends StatelessWidget {
 
             },
           ),
-          FileWidget(
+          ShowFileItem(
             img: 'assets/image/temp/svg/document_file.svg',
             subtitle: '4 Folder  - 124MB',
             title: 'Documents',
@@ -48,7 +59,7 @@ class AllFiles extends StatelessWidget {
             },
 
           ),
-          FileWidget(
+          ShowFileItem(
             img: 'assets/image/temp/svg/document_file.svg',
             subtitle: '4 Folder  - 124MB',
             title: 'Broucelee Va Baradaran',
@@ -61,7 +72,7 @@ class AllFiles extends StatelessWidget {
               ));
             },
 
-          ),
+          ),*/
         ],
       ),
     );

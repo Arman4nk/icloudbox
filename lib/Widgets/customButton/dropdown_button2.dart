@@ -12,6 +12,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 const Duration _kDropdownMenuDuration = Duration(milliseconds: 300);
 const double _kMenuItemHeight = kMinInteractiveDimension;
@@ -278,6 +279,7 @@ class _DropdownMenuState<T> extends State<_DropdownMenu<T>> {
       curve: const Interval(0.25, 0.5),
       reverseCurve: const Threshold(0.0),
     );
+
   }
 
   @override
@@ -572,6 +574,8 @@ class _DropdownRoute<T> extends PopupRoute<_DropdownRouteResult<T>> {
     if (isActive) {
       navigator?.removeRoute(this);
     }
+    //todo better handle
+    Get.back();
   }
 
   double getItemOffset(int index) {
@@ -1344,6 +1348,10 @@ class _DropdownButton2State<T> extends State<DropdownButton2<T>>
       ),
     };
     focusNode!.addListener(_handleFocusChanged);
+
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      _handleTap();
+    });
   }
 
   @override
@@ -1685,7 +1693,7 @@ class _DropdownButton2State<T> extends State<DropdownButton2<T>>
         actions: _actionMap,
         child: InkWell(
           mouseCursor: effectiveMouseCursor,
-          onLongPress: _enabled ? _handleTap : null,
+        //  onLongPress: _enabled ? _handleTap : null,
           canRequestFocus: _enabled,
           focusNode: focusNode,
           autofocus: widget.autofocus,
