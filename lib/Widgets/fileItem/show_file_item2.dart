@@ -35,7 +35,7 @@ class ShowFileItem2 extends StatelessWidget {
     return   GestureDetector(
       onTap: onTap,
       child: Container(
-        width:ScreenUtil().screenWidth-40.w,
+        width:ScreenUtil().screenWidth-45.w,
         margin: EdgeInsets.only(bottom: 8.h, right: 6),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),

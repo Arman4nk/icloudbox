@@ -14,6 +14,12 @@ class AllFiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = GlobalKey();
+    final b = GlobalKey();
+    final c = GlobalKey();
+    final d = GlobalKey();
+    final e = GlobalKey();
+    final f = GlobalKey();
+    final g = GlobalKey();
     final controller =Get.find<FilesController>();
     return SingleChildScrollView(
       child: Column(
@@ -34,6 +40,61 @@ class AllFiles extends StatelessWidget {
             onTap: (){},
 
           ),
+          ShowFileItem(
+            key: b,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:b),
+            slideOption: controller.slideFileOption,
+            onTap: (){},
+
+          ),
+          ShowFileItem(
+            key: c,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:c),
+            slideOption: controller.slideFileOption,
+            onTap: (){},
+
+          ),
+          ShowFileItem(
+            key: d,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:d),
+            slideOption: controller.slideFileOption,
+            onTap: (){},
+
+          ),
+          ShowFileItem(
+            key: e,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:e),
+            slideOption: controller.slideFileOption,
+            onTap: (){},
+
+          ),
+          ShowFileItem(
+            key: f,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:f),
+            slideOption: controller.slideFileOption,
+            onTap: (){},
+
+          ),
+          ShowFileItem(
+            key: g,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:g),
+            slideOption: controller.slideFileOption,
+            onTap: (){},
+
+          ),
+
         /*  ShowFileItem(
             img: 'assets/image/temp/svg/document_file.svg',
             subtitle: '4 Folder  - 124MB',

@@ -23,7 +23,7 @@ class BlurXYDialog extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-              top: controller.location().dy,
+              top: controller.location().dy-50.h,
              // left: controller.location().dx,
               child: DropdownButtonHideUnderline(
             child: DropdownButton2<MenuItemModel>(
