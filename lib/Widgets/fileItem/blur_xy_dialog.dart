@@ -33,22 +33,20 @@ class BlurXYDialog extends StatelessWidget {
                   child: MenuItems(item: e),
                   value: e,
                 ),
-              )
-                  .toList(),
+              ).toList(),
               onChanged: controller.onChangeMenu,
               openWithLongPress: true,
-
               customItemsIndexes: const [6],
               customItemsHeight: 8,
               dropdownWidth: 230,
-              dropdownPadding: const EdgeInsets.symmetric(vertical: 20),
+              dropdownPadding:  EdgeInsets.only(top: 30.h),
               dropdownDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: AppColors.accent2,
               ),
               offset: Offset(0, -8.h),
               customButton: ShowFileItem2(
-                  itemModel: controller.model, slideOption: const [], onTap: () {}),
+                  itemModel: controller.model, slideOption: const [] , onTap: () {}),
             ),
           )),
         ],

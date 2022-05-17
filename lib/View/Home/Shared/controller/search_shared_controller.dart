@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
-
+import 'package:icloudbox/View/Home/Files/component/info_bottomsheet.dart';
+import 'package:icloudbox/View/Home/Files/component/rename_dialog_widget.dart';
+import 'package:icloudbox/View/Home/Files/component/share_bottomsheet.dart';
 import '../../../../Model/menu_item_model.dart';
 import '../../../../Utils/colors.dart';
 import '../../../../Widgets/blur_widget/blur_dialog.dart';
-import '../component/info_bottomsheet.dart';
-import '../component/rename_dialog_widget.dart';
-import '../component/share_bottomsheet.dart';
+
 
 class SearchFileController extends GetxController{
 
@@ -26,48 +26,48 @@ class SearchFileController extends GetxController{
     ]);    super.onInit();
   }
 
-void _onTapGetInfo(){
-  Get.bottomSheet(
-    const InfoBottomSheet(),
-    backgroundColor: AppColors.accent2,
-    elevation: 0,
-    isScrollControlled: true,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20)),
-    ),
-  );
-}
-void _onTapRename(){
-  Get.dialog(
-    BlurDialog(
-      child:RenameDialogWidget(),
-    ),
-    barrierDismissible: true,
-  );
+  void _onTapGetInfo(){
+    Get.bottomSheet(
+      const InfoBottomSheet(),
+      backgroundColor: AppColors.accent2,
+      elevation: 0,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20)),
+      ),
+    );
+  }
+  void _onTapRename(){
+    Get.dialog(
+      const BlurDialog(
+        child:RenameDialogWidget(),
+      ),
+      barrierDismissible: true,
+    );
 
-}
-void _onTapDownload(){}
-void _onTapShare(){
-  Get.bottomSheet(
-    const ShareBottomSheet(),
-    backgroundColor: AppColors.accent2,
-    elevation: 0,
-    isScrollControlled: true,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20)),
-    ),
-  );
-}
-void _onTapAddToStarred(){}
-void _onTapDelete(){}
+  }
+  void _onTapDownload(){}
+  void _onTapShare(){
+    Get.bottomSheet(
+      const ShareBottomSheet(),
+      backgroundColor: AppColors.accent2,
+      elevation: 0,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20)),
+      ),
+    );
+  }
+  void _onTapAddToStarred(){}
+  void _onTapDelete(){}
 
-void onChangeMenu (MenuItemModel? value){
-  value?.onTap();
-}
+  void onChangeMenu (MenuItemModel? value){
+    value?.onTap();
+  }
   List<SlidableAction> slideFileOption= [
     SlidableAction(
       onPressed: (ctx) {},

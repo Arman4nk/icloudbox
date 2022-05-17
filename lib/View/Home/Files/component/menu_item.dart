@@ -27,7 +27,7 @@ class MenuItems extends StatelessWidget {
             ],
           ),
         ),
-        const Divider(color: AppColors.secondary3,),
+       if(item.text != 'Delete') const Divider(color: AppColors.secondary3,),
       ],
 
     );

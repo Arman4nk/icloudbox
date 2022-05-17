@@ -12,6 +12,9 @@ class YourFiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final a = GlobalKey();
+    final b = GlobalKey();
+    final c = GlobalKey();
     final controller =Get.find<FilesController>();
     return SingleChildScrollView(
       child: Column(
@@ -24,11 +27,42 @@ class YourFiles extends StatelessWidget {
           ),
           SizedBox( height: 20.h,),
           ShowFileItem(
+            key: a,
             itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
                 img: 'assets/image/temp/svg/document_file.svg',
-                itemKey:GlobalKey()),
+                itemKey:a),
             slideOption: controller.slideFileOption,
-            onTap: (){},
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const SingleFile(title: 'photos'),
+              ));
+            },
+
+          ),
+          ShowFileItem(
+            key: b,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:b),
+            slideOption: controller.slideFileOption,
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const SingleFile(title: 'photos'),
+              ));
+            },
+
+          ),
+          ShowFileItem(
+            key: c,
+            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
+                img: 'assets/image/temp/svg/document_file.svg',
+                itemKey:c),
+            slideOption: controller.slideFileOption,
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const SingleFile(title: 'photos'),
+              ));
+            },
 
           ),
         /*  ShowFileItem(

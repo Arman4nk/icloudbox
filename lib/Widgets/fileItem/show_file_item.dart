@@ -16,12 +16,10 @@ class ShowFileItem extends StatelessWidget {
   final String subtitle;
   final String? subTitleIcon;
   final String? subTitleIcon2;*/
-  final void Function() onTap;
+  //  final GlobalKey globalKey;
   final FileItemModel itemModel;
-
-//  final GlobalKey globalKey;
+  final void Function() onTap;
   final List<SlidableAction> slideOption;
-
   const ShowFileItem({
     required this.itemModel,
     required this.slideOption,

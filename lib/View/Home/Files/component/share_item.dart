@@ -3,26 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:icloudbox/Model/file_item_model.dart';
+import 'package:icloudbox/Model/share_item_model.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:get/get.dart';
 
 class ShareFileWidget extends StatelessWidget {
-  final String? img;
+/*  final String? img;
   final String? imgImage;
   final String title;
   final String subtitle;
   final String? subTitleIcon;
+  final List<SlidableAction> slideOption;*/
+  final ShareItemModel itemModel;
   final List<SlidableAction> slideOption;
 
   const ShareFileWidget({
-    required this.title,
+    required this.itemModel,
+    required this.slideOption,
+/*    required this.title,
     this.img,
     required this.subtitle,
     this.subTitleIcon,
     this.imgImage,
-    required this.slideOption,
+    required this.slideOption,*/
     Key? key,
   }) : super(key: key);
 
@@ -32,15 +38,12 @@ class ShareFileWidget extends StatelessWidget {
     return Slidable(
       key: const ValueKey(0),
       endActionPane: ActionPane(
-        // A motion is a widget used to control how the pane animates.
         motion: const ScrollMotion(),
-
-        // A pane can dismiss the Slidable.
-        dismissible: DismissiblePane(onDismissed: () {
+        dismissible: DismissiblePane(
+            onDismissed: () {
           print('here');
         }),
         dragDismissible: false,
-        // All actions are defined in the children parameter.
         children: slideOption,
       ),
       child: Stack(
@@ -70,23 +73,23 @@ class ShareFileWidget extends StatelessWidget {
               padding:
               EdgeInsets.only(top: 10.h, bottom: 10.h, right: 20.w),
               child: ListTile(
-                leading:img!=null? SvgPicture.asset(img!) : ClipRRect(
+                leading:itemModel.img!=null? SvgPicture.asset(itemModel.img!) : ClipRRect(
                     borderRadius: BorderRadius.circular(16),
-                    child: Image.asset(imgImage!)),
+                    child: Image.asset(itemModel.imgImage!)),
                 title: Text(
-                  title,
+                  itemModel.title,
                   style: AppStyles.semiBoldBody1,
                 ),
                 subtitle: Row(
                   children: [
-                    if (subTitleIcon != null)
-                      SvgPicture.asset(subTitleIcon!),
-                    if (subTitleIcon != null)
+                    if (itemModel.subTitleIcon != null)
+                      SvgPicture.asset(itemModel.subTitleIcon!),
+                    if (itemModel.subTitleIcon != null)
                       SizedBox(
                         width: 5.w,
                       ),
                     Text(
-                      subtitle,
+                      itemModel.subtitle,
                       style: AppStyles.regularBody3
                           .apply(color: AppColors.secondary2),
                     ),

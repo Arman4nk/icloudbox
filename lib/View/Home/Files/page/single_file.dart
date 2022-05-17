@@ -121,8 +121,11 @@ class SingleFile extends StatelessWidget {
                         img: 'assets/image/temp/svg/document_file.svg',
                         itemKey:GlobalKey()),
                     slideOption: controller.slideFileOption,
-                    onTap: (){},
-
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SingleFileDetails(title: 'Documents'),
+                      ));
+                    },
                   ),
                /*   ShowFileItem(
                     img: 'assets/image/temp/svg/document_file.svg',

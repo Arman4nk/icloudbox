@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:icloudbox/Model/file_item_model.dart';
+import 'package:icloudbox/Model/share_item_model.dart';
 import 'package:icloudbox/View/Home/Files/component/share_item.dart';
 import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 
@@ -76,47 +78,34 @@ class ShareBottomSheet extends StatelessWidget {
                     SizedBox(
                       height: 16.h,
                     ),
+
                     ShareFileWidget(
-                      imgImage:'assets/image/temp/img/pro1.png',
-                      subtitle: 'Owner',
-                      title: 'Shadi Hosseini',
+                      itemModel: ShareItemModel(
+                        title: 'Shadi Hosseini',
+                        subtitle: 'Owner',
+                        imgImage: 'assets/image/temp/img/pro1.png',
+                      ),
                       slideOption: controller.slideShareOption,
+
+                      // slideOption: controller.slideShareOption,
                     ),
                     ShareFileWidget(
-                      imgImage: 'assets/image/temp/img/pro2.jpg',
-                      subtitle: 'Owner',
-                      title: 'Arman Nasiri',
+                      itemModel: ShareItemModel(
+                        title: 'Arman Nasiri',
+                        subtitle: 'Owner',
+                        imgImage: 'assets/image/temp/img/pro2.jpg',
+                      ),
                       slideOption: controller.slideShareOption,
+                      // slideOption: controller.slideShareOption,
                     ),
                     ShareFileWidget(
-                      imgImage: 'assets/image/temp/img/pro1.png',
-                      subtitle: 'Owner',
-                      title: 'Shadi Hosseini',
+                      itemModel: ShareItemModel(
+                        title: 'Arman Nasiri',
+                        subtitle: 'Owner',
+                        imgImage: 'assets/image/temp/img/pro2.jpg',
+                      ),
                       slideOption: controller.slideShareOption,
-                    ),
-                    ShareFileWidget(
-                      imgImage: 'assets/image/temp/img/pro1.png',
-                      subtitle: 'Owner',
-                      title: 'Shadi Hosseini',
-                      slideOption: controller.slideShareOption,
-                    ),
-                    ShareFileWidget(
-                      imgImage: 'assets/image/temp/img/pro1.png',
-                      subtitle: 'Owner',
-                      title: 'Shadi Hosseini',
-                      slideOption: controller.slideShareOption,
-                    ),
-                    ShareFileWidget(
-                      imgImage: 'assets/image/temp/img/pro1.png',
-                      subtitle: 'Owner',
-                      title: 'Shadi Hosseini',
-                      slideOption: controller.slideShareOption,
-                    ),
-                    ShareFileWidget(
-                      imgImage: 'assets/image/temp/img/pro1.png',
-                      subtitle: 'Owner',
-                      title: 'Shadi Hosseini',
-                      slideOption: controller.slideShareOption,
+                      // slideOption: controller.slideShareOption,
                     ),
                     SizedBox(height: 100.h,),
                   ],

@@ -9,8 +9,8 @@ import 'package:icloudbox/View/Home/Files/controller/search_file_controller.dart
 import 'package:icloudbox/Widgets/custom_input.dart';
 
 
-class SearchFile extends StatelessWidget {
-  const SearchFile({Key? key}) : super(key: key);
+class SearchShared extends StatelessWidget {
+  const SearchShared({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -116,8 +116,8 @@ class SearchFile extends StatelessWidget {
                       onTap: () {},
                       slideOption: controller.slideFileOption,
                       itemModel: FileItemModel(
-                          title: 'photos',
-                          subtitle: 'No Folder - 0KB',
+                          title: 'document',
+                          subtitle: 'No Folder - 500KB',
                           itemKey: a,
                           img: 'assets/image/temp/svg/document_file.svg'
                       ),

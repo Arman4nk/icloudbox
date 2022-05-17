@@ -35,9 +35,10 @@ class File extends StatelessWidget {
         },
         child: Container(
             padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(
+            decoration:  BoxDecoration(
               color: AppColors.accent1,
               shape: BoxShape.circle,
+              border: Border.all(color: AppColors.primary1,width: 4),
             ),
             child: const Icon(
               Icons.add,
@@ -124,7 +125,7 @@ class File extends StatelessWidget {
         backgroundColor: AppColors.accent2,
         elevation: 0,
         title: Text(
-          'Home',
+          'File',
           style: AppStyles.semiBoldTitle3,
         ),
         leadingWidth: 0,
@@ -133,7 +134,7 @@ class File extends StatelessWidget {
             onTap: () {
               //   Get.to(()=>const SearchFile());
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SearchFile(),
+                builder: (context) => const SearchFile(),
               ));
             },
             child: Padding(
