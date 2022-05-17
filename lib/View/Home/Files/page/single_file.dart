@@ -5,8 +5,6 @@ import 'package:icloudbox/Model/file_item_model.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/View/Home/Files/component/add_file_page.dart';
-import 'package:icloudbox/View/Home/Files/component/choose_location_item.dart';
-import 'package:icloudbox/View/Home/Files/component/search_item.dart';
 import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:icloudbox/View/Home/Files/page/search_file.dart';
 import 'package:icloudbox/View/Home/Files/page/single_file_details.dart';
@@ -90,6 +88,7 @@ class SingleFile extends StatelessWidget {
         ),
       ),
       body: Stack(
+        fit: StackFit.expand,
         children: [
           Positioned.fill(
             top: - MediaQuery.of(context).padding.top+8.h,
@@ -123,7 +122,7 @@ class SingleFile extends StatelessWidget {
                     slideOption: controller.slideFileOption,
                     onTap: (){
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SingleFileDetails(title: 'Documents'),
+                        builder: (context) => const SingleFileDetails(title: 'Documents'),
                       ));
                     },
                   ),

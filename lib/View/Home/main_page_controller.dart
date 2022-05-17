@@ -14,7 +14,7 @@ class MainPageController extends GetxController{
   GlobalKey<NavigatorState> sharedKey = GlobalKey();
   GlobalKey<NavigatorState> settingKey = GlobalKey();
 
-  final pageIndex = 1.obs;
+  final pageIndex = 2.obs;
   final List<Widget> tabList=[];
 
   @override

@@ -3,13 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:icloudbox/Model/file_item_model.dart';
-import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
+import 'package:icloudbox/Utils/colors.dart';
+import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/Widgets/fileItem/blur_xy_dialog.dart';
-import '../../Utils/colors.dart';
-import '../../Utils/text_styls.dart';
-import 'package:get/get.dart';
 
-class ShowFileItem extends StatelessWidget {
+class ShowShareItem extends StatelessWidget{
 /*  final String? img;
   final String? imgImage;
   final String title;
@@ -20,7 +18,7 @@ class ShowFileItem extends StatelessWidget {
   final FileItemModel itemModel;
   final void Function() onTap;
   final List<SlidableAction> slideOption;
-  const ShowFileItem({
+  const ShowShareItem({
     required this.itemModel,
     required this.slideOption,
     required this.onTap,
@@ -62,7 +60,7 @@ class ShowFileItem extends StatelessWidget {
           GestureDetector(
             onTap: onTap,
             onLongPress:()=> showDialog(context: context,
-                builder: (context)=> BlurXYDialog(model: itemModel),),
+              builder: (context)=> BlurXYDialog(model: itemModel),),
             child: Container(
               width: ScreenUtil().screenWidth,
               margin: EdgeInsets.only(bottom: 8.h, right: 6),
@@ -79,8 +77,8 @@ class ShowFileItem extends StatelessWidget {
                   leading: itemModel.img != null
                       ? SvgPicture.asset(itemModel.img!)
                       : ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
-                          child: Image.asset(itemModel.imgImage!)),
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(itemModel.imgImage!)),
                   title: Text(
                     itemModel.title,
                     style: AppStyles.semiBoldBody1,
@@ -105,9 +103,23 @@ class ShowFileItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                  trailing: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: SvgPicture.asset('assets/image/file/svg/arrow.svg'),
+                  trailing: Stack(
+                    children: [
+                     for(int i=1 ; i<6 ; i++)
+                       Container(
+                         width: 28.w,
+                         height: 28.w,
+                         margin:i==5? null:EdgeInsets.only(left:(12*i).toDouble()),
+                         decoration:BoxDecoration(
+                           shape: BoxShape.circle,
+                           image: DecorationImage(
+                             image: AssetImage('assets/image/temp/img/pro${i+2}.png')
+                           )
+                         )
+                       )
+
+
+                    ],
                   ),
                 ),
               ),
