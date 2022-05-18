@@ -83,7 +83,7 @@ class ShareBottomSheet extends StatelessWidget {
                       itemModel: ShareItemModel(
                         title: 'Shadi Hosseini',
                         subtitle: 'Owner',
-                        imgImage: 'assets/image/temp/img/pro1.png',
+                        imgImage: 'assets/image/temp/img/pro2.png',
                       ),
                       slideOption: controller.slideShareOption,
 
@@ -93,7 +93,7 @@ class ShareBottomSheet extends StatelessWidget {
                       itemModel: ShareItemModel(
                         title: 'Arman Nasiri',
                         subtitle: 'Owner',
-                        imgImage: 'assets/image/temp/img/pro2.jpg',
+                        imgImage: 'assets/image/temp/img/pro.jpg',
                       ),
                       slideOption: controller.slideShareOption,
                       // slideOption: controller.slideShareOption,
@@ -102,7 +102,7 @@ class ShareBottomSheet extends StatelessWidget {
                       itemModel: ShareItemModel(
                         title: 'Arman Nasiri',
                         subtitle: 'Owner',
-                        imgImage: 'assets/image/temp/img/pro2.jpg',
+                        imgImage: 'assets/image/temp/img/pro.jpg',
                       ),
                       slideOption: controller.slideShareOption,
                       // slideOption: controller.slideShareOption,

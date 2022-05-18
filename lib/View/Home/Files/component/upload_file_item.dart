@@ -26,7 +26,6 @@ class ShareFileItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<FilesController>();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Stack(

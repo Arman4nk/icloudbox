@@ -83,11 +83,10 @@ class SearchItem extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(top: 10.h, bottom: 10.h,),
                   child: ListTile(
-                    leading: itemModel.img != null
-                        ? SvgPicture.asset(itemModel.img!)
-                        : ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: Image.asset(itemModel.imgImage!)),
+                    leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child:itemModel.type=='image'?Image.asset(itemModel.img!)
+                            :Image.asset('assets/image/type/img/${setTypeImage()}.png')),
                     title: _renderTitle(),
                     /*Text(
                       title,
@@ -145,5 +144,24 @@ class SearchItem extends StatelessWidget {
     } else {
       return Text(itemModel.title);
     }
+  }
+  String setTypeImage() {
+    switch (itemModel.type) {
+      case 'folder':
+        return 'folder';
+      case 'folders':
+        return 'folders';
+      case 'music':
+        return 'music';
+      case 'pdf':
+        return 'pdf';
+      case 'video':
+        return 'video';
+      case 'voice':
+        return 'voice';
+      case 'zip':
+        return 'zip';
+    }
+    return '';
   }
 }

@@ -47,11 +47,10 @@ class ShowFileItem2 extends StatelessWidget {
             bottom: 10.h,
           ),
           child: ListTile(
-            leading: itemModel.img != null
-                ? SvgPicture.asset(itemModel.img!)
-                : ClipRRect(
+            leading: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.asset(itemModel.imgImage!)),
+                child:itemModel.type=='image'?Image.asset(itemModel.img!)
+                    :Image.asset('assets/image/type/img/${setTypeImage()}.png')),
             title: Text(
               itemModel.title,
               style: AppStyles.semiBoldBody1,
@@ -84,5 +83,24 @@ class ShowFileItem2 extends StatelessWidget {
         ),
       ),
     );
+  }
+  String setTypeImage() {
+    switch (itemModel.type) {
+      case 'folder':
+        return 'folder';
+      case 'folders':
+        return 'folders';
+      case 'music':
+        return 'music';
+      case 'pdf':
+        return 'pdf';
+      case 'video':
+        return 'video';
+      case 'voice':
+        return 'voice';
+      case 'zip':
+        return 'zip';
+    }
+    return '';
   }
 }

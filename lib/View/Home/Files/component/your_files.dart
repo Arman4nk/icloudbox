@@ -12,9 +12,9 @@ class YourFiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final a = GlobalKey();
-    final b = GlobalKey();
-    final c = GlobalKey();
+    final e = GlobalKey();
+    final f = GlobalKey();
+    final g = GlobalKey();
     final controller =Get.find<FilesController>();
     return SingleChildScrollView(
       child: Column(
@@ -27,10 +27,12 @@ class YourFiles extends StatelessWidget {
           ),
           SizedBox( height: 20.h,),
           ShowFileItem(
-            key: a,
-            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
-                img: 'assets/image/temp/svg/document_file.svg',
-                itemKey:a),
+            key: e,
+            itemModel: FileItemModel(
+                title: 'MammadPazoki.Mp4',
+                subtitle: 'No Folder - 0KB',
+                type: 'video',
+                itemKey:e),
             slideOption: controller.slideFileOption,
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(
@@ -40,10 +42,14 @@ class YourFiles extends StatelessWidget {
 
           ),
           ShowFileItem(
-            key: b,
-            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
-                img: 'assets/image/temp/svg/document_file.svg',
-                itemKey:b),
+            key: f,
+            itemModel: FileItemModel(
+                title: 'Arman.Png',
+                subtitle: 'No Folder - 0KB',
+                type: 'image',
+                img: 'assets/image/temp/img/pro.jpg',
+                itemKey:f
+            ),
             slideOption: controller.slideFileOption,
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(
@@ -53,10 +59,12 @@ class YourFiles extends StatelessWidget {
 
           ),
           ShowFileItem(
-            key: c,
-            itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
-                img: 'assets/image/temp/svg/document_file.svg',
-                itemKey:c),
+            key: g,
+            itemModel: FileItemModel(
+                title: 'MammadPazoki.M4A',
+                subtitle: 'No Folder - 0KB',
+                type: 'voice',
+                itemKey:g),
             slideOption: controller.slideFileOption,
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(
@@ -65,55 +73,6 @@ class YourFiles extends StatelessWidget {
             },
 
           ),
-        /*  ShowFileItem(
-            img: 'assets/image/temp/svg/document_file.svg',
-            subtitle: '4 Folder  - 124MB',
-            title: 'Documents',
-            subTitleIcon: 'assets/image/file/svg/group.svg',
-            slideOption: controller.slideFileOption,
-            onTap: (){},
-
-          ),
-          ShowFileItem(
-            img: 'assets/image/temp/svg/document_file.svg',
-            subtitle: '4 Folder  - 124MB',
-            title: 'Broucelee Va Baradaran',
-            subTitleIcon: 'assets/image/file/svg/star.svg',
-            slideOption: controller.slideFileOption,
-
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SingleFile(title: 'Broucelee Va Baradaran'),
-              ));
-            },
-
-          ),
-          ShowFileItem(
-            img: 'assets/image/temp/svg/document_file.svg',
-            subtitle: '4 Folder  - 20',
-            title: 'Broucelee Va Khaharan',
-            subTitleIcon: 'assets/image/file/svg/star.svg',
-            slideOption: controller.slideFileOption,
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SingleFile(title: 'Broucelee Va Baradaran'),
-              ));
-            },
-
-          ),
-          ShowFileItem(
-            img: 'assets/image/temp/svg/document_file.svg',
-            subtitle: '4 Folder  - 124MB',
-            title: 'Broucelee Va Baradaran',
-            subTitleIcon: 'assets/image/file/svg/star.svg',
-            slideOption: controller.slideFileOption,
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SingleFile(title: 'Broucelee Va Baradaran'),
-              ));
-            },
-
-          ),*/
         ],
       ),
     );

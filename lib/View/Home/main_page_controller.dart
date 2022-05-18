@@ -64,13 +64,13 @@ class MainPageController extends GetxController{
         break;
       case 2 :
         if(sharedKey.currentState!.canPop()){
-          fileKey.currentState!.pop();
+          sharedKey.currentState!.pop();
           return false;
         }
         break;
       case 3 :
         if(settingKey.currentState!.canPop()){
-          fileKey.currentState!.pop();
+          settingKey.currentState!.pop();
           return false;
         }
         break;

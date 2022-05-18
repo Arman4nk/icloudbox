@@ -150,6 +150,20 @@ class File extends StatelessWidget {
       ),
       body: Stack(
         children: [
+
+          Padding(
+            padding: EdgeInsets.only(left: 20.w, right: 14.w),
+            child: PageView(
+              controller: controller.pageController,
+              onPageChanged: (index) {
+                controller.selectedIndex(index);
+              },
+              children: const [
+                AllFiles(),
+                YourFiles(),
+              ],
+            ),
+          ),
           Positioned.fill(
             top: -MediaQuery.of(context).padding.top + 8.h,
             child: Align(
@@ -163,19 +177,6 @@ class File extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(left: 20.w, right: 14.w),
-            child: PageView(
-              controller: controller.pageController,
-              onPageChanged: (index) {
-                controller.selectedIndex(index);
-              },
-              children: const [
-                AllFiles(),
-                YourFiles(),
-              ],
-            ),
-          )
         ],
       ),
     );

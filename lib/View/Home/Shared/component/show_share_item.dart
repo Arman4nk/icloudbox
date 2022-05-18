@@ -58,7 +58,7 @@ class ShowShareItem extends StatelessWidget{
             ),
           ),
           GestureDetector(
-            onTap: onTap,
+            onTap:itemModel.type=='folder' || itemModel.type=='folders'? onTap : null,
             onLongPress:()=> showDialog(context: context,
               builder: (context)=> BlurXYDialog(model: itemModel),),
             child: Container(
@@ -74,11 +74,10 @@ class ShowShareItem extends StatelessWidget{
                   bottom: 10.h,
                 ),
                 child: ListTile(
-                  leading: itemModel.img != null
-                      ? SvgPicture.asset(itemModel.img!)
-                      : ClipRRect(
+                  leading: ClipRRect(
                       borderRadius: BorderRadius.circular(16),
-                      child: Image.asset(itemModel.imgImage!)),
+                      child:itemModel.type=='image'?Image.asset(itemModel.img!)
+                          :Image.asset('assets/image/type/img/${setTypeImage()}.png')),
                   title: Text(
                     itemModel.title,
                     style: AppStyles.semiBoldBody1,
@@ -105,7 +104,7 @@ class ShowShareItem extends StatelessWidget{
                   ),
                   trailing: Stack(
                     children: [
-                     for(int i=1 ; i<6 ; i++)
+                     for(int i=1 ; i<=4 ; i++)
                        Container(
                          width: 28.w,
                          height: 28.w,
@@ -113,7 +112,7 @@ class ShowShareItem extends StatelessWidget{
                          decoration:BoxDecoration(
                            shape: BoxShape.circle,
                            image: DecorationImage(
-                             image: AssetImage('assets/image/temp/img/pro${i+2}.png')
+                             image: AssetImage('assets/image/temp/img/pro${i+1}.png')
                            )
                          )
                        )
@@ -128,5 +127,24 @@ class ShowShareItem extends StatelessWidget{
         ],
       ),
     );
+  }
+  String setTypeImage() {
+    switch (itemModel.type) {
+      case 'folder':
+        return 'folder';
+      case 'folders':
+        return 'folders';
+      case 'music':
+        return 'music';
+      case 'pdf':
+        return 'pdf';
+      case 'video':
+        return 'video';
+      case 'voice':
+        return 'voice';
+      case 'zip':
+        return 'zip';
+    }
+    return '';
   }
 }

@@ -14,7 +14,7 @@ class CreateAccountBottomSheet extends StatelessWidget {
     final controller = Get.find<LoginController>();
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding:EdgeInsets.symmetric(horizontal: 20.w),
       child: SingleChildScrollView(
         child: Column(
           children: [

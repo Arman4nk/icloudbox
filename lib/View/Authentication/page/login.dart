@@ -21,6 +21,7 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(LoginController());
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Column(
@@ -56,12 +57,10 @@ class FirstPage extends StatelessWidget {
                   title: 'Login',
                   subtitle: 'Login To Your Account',
                   onTap: () {
-                    showModalBottomSheet(
-                      elevation: 0,
-                      backgroundColor: Colors.transparent,
-                      context: context,
-                     builder: (context) =>  const LoginBottomSheet(),
-                    );
+                    Tools.showModalBottomSheet(
+                        context: context,
+
+                        child:  const LoginBottomSheet());
                   },
                 ),
               ),

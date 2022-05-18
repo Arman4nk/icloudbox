@@ -5,19 +5,21 @@ import 'package:icloudbox/Model/file_item_model.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
 import 'package:icloudbox/View/Home/Files/component/add_file_page.dart';
-import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:icloudbox/View/Home/Files/page/search_file.dart';
 import 'package:icloudbox/View/Home/Files/page/single_file_details.dart';
+import 'package:icloudbox/View/Home/Shared/controller/single_share_controller.dart';
 import 'package:icloudbox/Widgets/blur_widget/blur_bottom_sheet.dart';
 import 'package:icloudbox/Widgets/fileItem/show_file_item.dart';
 
-class SingleFile extends StatelessWidget {
+import '../controller/shared_controller.dart';
+
+class SingleShare extends StatelessWidget {
   final String title;
-  const SingleFile({Key? key,required this.title}) : super(key: key);
+  const SingleShare({Key? key,required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller =Get.find<FilesController>();
+     final x = Get.put(SingleShareController());
     final e = GlobalKey();
 
     return Scaffold(
@@ -79,7 +81,7 @@ class SingleFile extends StatelessWidget {
                     },
                     child: Padding(
                       padding: EdgeInsets.only(right: 6.w),
-                      child: Image.asset('assets/image/home/img/search.png',width: 54.w,),
+                      child: Image.asset('assets/image/share/img/persons.png',width: 54.w,),
                     ),
                   ),
                 ],
@@ -110,60 +112,33 @@ class SingleFile extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
+
+
+
+
+
+
+
                   SizedBox(height: 25.h,),
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Text('List',style: AppStyles.semiBoldHeadline2,),
+                    child: Text('Files',style: AppStyles.semiBoldHeadline2,),
                   ),
                   SizedBox( height: 20.h,),
                   ShowFileItem(
                     itemModel: FileItemModel(
-                        title: 'MammadPazoki.Mp4',
+                        title: 'karo.Mp4',
                         subtitle: 'No Folder - 0KB',
                         type: 'video',
                         itemKey:e),
-                    slideOption: controller.slideFileOption,
+                    slideOption: x.slideFileOption,
                     onTap: (){
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const SingleFileDetails(title: 'Documents'),
                       ));
                     },
                   ),
-               /*   ShowFileItem(
-                    img: 'assets/image/temp/svg/document_file.svg',
-                    subtitle: '4 Folder  - 124MB',
-                    title: 'Documents',
-                    subTitleIcon: 'assets/image/file/svg/star.svg',
-                    slideOption: controller.slideFileOption,
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SingleFileDetails(title: 'Documents'),
-                      ));
-                    },
-                  ),
-                  ShowFileItem(
-                    img: 'assets/image/temp/svg/document_file.svg',
-                    subtitle: 'No Folder - 0KB',
-                    title: 'Photos',
-                    slideOption: controller.slideFileOption,
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SingleFileDetails(title: 'Photos'),
-                      ));
-                    },
-                  ),
-                  ShowFileItem(
-                    img: 'assets/image/temp/svg/document_file.svg',
-                    subtitle: '4 Folder  - 124MB',
-                    title: 'Mamad Salahshoor',
-                    slideOption: controller.slideFileOption,
-                    subTitleIcon: 'assets/image/file/svg/group.svg',
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SingleFileDetails(title: 'Mamad Salahshoor'),
-                      ));
-                    },
-                  ),*/
                 ],
               ),
             ),

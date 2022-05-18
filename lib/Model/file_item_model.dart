@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class FileItemModel {
   final String? img;
-  final String? imgImage;
   final String title;
+  final String type;
   final String subtitle;
   final String? subTitleIcon;
   final String? subTitleIcon2;
@@ -11,7 +11,7 @@ class FileItemModel {
 
   FileItemModel(
       {this.img,
-      this.imgImage,
+      required this.type,
       required this.title,
       required this.subtitle,
       this.subTitleIcon,

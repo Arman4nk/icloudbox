@@ -3,11 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:icloudbox/Model/file_item_model.dart';
-import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:icloudbox/Widgets/fileItem/blur_xy_dialog.dart';
 import '../../Utils/colors.dart';
 import '../../Utils/text_styls.dart';
-import 'package:get/get.dart';
 
 class ShowFileItem extends StatelessWidget {
 /*  final String? img;
@@ -20,6 +18,7 @@ class ShowFileItem extends StatelessWidget {
   final FileItemModel itemModel;
   final void Function() onTap;
   final List<SlidableAction> slideOption;
+
   const ShowFileItem({
     required this.itemModel,
     required this.slideOption,
@@ -60,9 +59,11 @@ class ShowFileItem extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: onTap,
-            onLongPress:()=> showDialog(context: context,
-                builder: (context)=> BlurXYDialog(model: itemModel),),
+            onTap:itemModel.type=='folder' || itemModel.type=='folders'? onTap : null,
+            onLongPress: () => showDialog(
+              context: context,
+              builder: (context) => BlurXYDialog(model: itemModel),
+            ),
             child: Container(
               width: ScreenUtil().screenWidth,
               margin: EdgeInsets.only(bottom: 8.h, right: 6),
@@ -76,18 +77,18 @@ class ShowFileItem extends StatelessWidget {
                   bottom: 10.h,
                 ),
                 child: ListTile(
-                  leading: itemModel.img != null
-                      ? SvgPicture.asset(itemModel.img!)
-                      : ClipRRect(
+                  leading: ClipRRect(
                           borderRadius: BorderRadius.circular(16),
-                          child: Image.asset(itemModel.imgImage!)),
+                          child:itemModel.type=='image'?Image.asset(itemModel.img!)
+                              :Image.asset('assets/image/type/img/${setTypeImage()}.png')),
                   title: Text(
                     itemModel.title,
                     style: AppStyles.semiBoldBody1,
                   ),
                   subtitle: Row(
                     children: [
-                      if (itemModel.subTitleIcon != null) SvgPicture.asset(itemModel.subTitleIcon!),
+                      if (itemModel.subTitleIcon != null)
+                        SvgPicture.asset(itemModel.subTitleIcon!),
                       if (itemModel.subTitleIcon2 != null)
                         SizedBox(
                           width: 5.w,
@@ -116,5 +117,25 @@ class ShowFileItem extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String setTypeImage() {
+    switch (itemModel.type) {
+      case 'folder':
+        return 'folder';
+      case 'folders':
+        return 'folders';
+      case 'music':
+        return 'music';
+      case 'pdf':
+        return 'pdf';
+      case 'video':
+        return 'video';
+      case 'voice':
+        return 'voice';
+      case 'zip':
+        return 'zip';
+    }
+    return '';
   }
 }

@@ -9,6 +9,7 @@ import 'package:icloudbox/View/Home/Files/component/add_file_page.dart';
 import 'package:icloudbox/View/Home/Shared/component/show_share_item.dart';
 import 'package:icloudbox/View/Home/Shared/controller/shared_controller.dart';
 import 'package:icloudbox/View/Home/Shared/page/search_shared.dart';
+import 'package:icloudbox/View/Home/Shared/page/single_share.dart';
 import 'package:icloudbox/Widgets/blur_widget/blur_bottom_sheet.dart';
 import 'package:icloudbox/Widgets/fileItem/show_file_item.dart';
 
@@ -88,20 +89,7 @@ class Shared extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Positioned.fill(
-            top: -MediaQuery.of(context).padding.top + 8.h,
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).padding.top,
-                decoration: BoxDecoration(
-                  color: AppColors.secondary3,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-            ),
-          ),
+
           SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -124,107 +112,129 @@ class Shared extends StatelessWidget {
                   ShowShareItem(
                     key: b,
                     itemModel: FileItemModel(
-                        title: 'photos',
+                        title: 'MammadPazoki.Mp4',
                         subtitle: 'No Folder - 0KB',
-                        img: 'assets/image/temp/svg/document_file.svg',
-                        itemKey:b
-                    ),
+                        type: 'video',
+                        itemKey:b),
                     slideOption: x.slideFileOption,
-                    onTap: (){},
-
-                  ),
-                  ShowShareItem(
-                    key: c,
-                    itemModel: FileItemModel(
-                        title: 'ShadiSinaei.JPG',
-                        subtitle: '8MB - 22 Feb 2022',
-                        imgImage: 'assets/image/temp/img/pro9.png',
-                        subTitleIcon: 'assets/image/file/svg/star.svg' ,
-                        itemKey:c
-                    ),
-                    slideOption: x.slideFileOption,
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SingleShare(title: 'MammadPazoki.Mp4'),
+                      ));
+                    },
 
                   ),
                   ShowShareItem(
                     key: d,
                     itemModel: FileItemModel(
-                        title: 'ShadiSinaei.JPG',
-                        subtitle: '8MB - 22 Feb 2022',
-                        imgImage: 'assets/image/temp/img/pro9.png',
-                        subTitleIcon: 'assets/image/file/svg/star.svg' ,
+                        title: 'Arman.Png',
+                        subtitle: 'No Folder - 0KB',
+                        type: 'image',
+                        img: 'assets/image/temp/img/pro.jpg',
                         itemKey:d
                     ),
                     slideOption: x.slideFileOption,
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SingleShare(title: 'Arman.Png'),
+                      ));
+                    },
 
                   ),
                   ShowShareItem(
                     key: e,
                     itemModel: FileItemModel(
-                        title: 'ShadiSinaei.JPG',
-                        subtitle: '8MB - 22 Feb 2022',
-                        imgImage: 'assets/image/temp/img/pro8.png',
-                        subTitleIcon: 'assets/image/file/svg/star.svg' ,
+                        title: 'Arman.Png',
+                        subtitle: 'No Folder - 0KB',
+                        type: 'image',
+                        img: 'assets/image/temp/img/pro.jpg',
                         itemKey:e
                     ),
                     slideOption: x.slideFileOption,
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SingleShare(title: 'Arman.Png'),
+                      ));
+                    },
 
                   ),
                   ShowShareItem(
                     key: f,
-                    itemModel: FileItemModel(
-                        title: 'ShadiSinaei.JPG',
-                        subtitle: '8MB - 22 Feb 2022',
-                        imgImage: 'assets/image/temp/img/pro8.png',
-                        subTitleIcon: 'assets/image/file/svg/star.svg' ,
+                    itemModel:  FileItemModel(
+                        title: 'photos',
+                        subtitle: 'No Folder - 0KB',
+                        type: 'folders',
                         itemKey:f
                     ),
                     slideOption: x.slideFileOption,
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SingleShare(title: 'photos'),
+                      ));
+                    },
 
                   ),
                   ShowShareItem(
                     key: g,
                     itemModel: FileItemModel(
-                        title: 'ShadiSinaei.JPG',
-                        subtitle: '8MB - 22 Feb 2022',
-                        imgImage: 'assets/image/temp/img/pro9.png',
-                        subTitleIcon: 'assets/image/file/svg/star.svg' ,
+                        title: 'Movies',
+                        subtitle: 'No Folder - 0KB',
+                        type: 'folder',
                         itemKey:g
                     ),
                     slideOption: x.slideFileOption,
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SingleShare(title: 'photos'),
+                      ));
+                    },
 
                   ),
                   ShowShareItem(
                     key: h,
-                    itemModel: FileItemModel(
-                        title: 'ShadiSinaei.JPG',
-                        subtitle: '8MB - 22 Feb 2022',
-                        imgImage: 'assets/image/temp/img/pro9.png',
-                        subTitleIcon: 'assets/image/file/svg/star.svg' ,
-                        itemKey:h
-                    ),
+                    itemModel:  FileItemModel(
+                        title: 'Filezilla.Zip',
+                        subtitle: 'No Folder - 0KB',
+                        type: 'zip',
+                        itemKey:h),
                     slideOption: x.slideFileOption,
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SingleShare(title: 'Filezilla.Zip'),
+                      ));
+                    },
 
                   ),
                   ShowShareItem(
                     key: i,
-                    itemModel: FileItemModel(
-                        title: 'ShadiSinaei.JPG',
-                        subtitle: '8MB - 22 Feb 2022',
-                        imgImage: 'assets/image/temp/img/pro9.png',
-                        subTitleIcon: 'assets/image/file/svg/star.svg' ,
-                        itemKey:i
-                    ),
+                    itemModel:  FileItemModel(
+                        title: 'Filezilla.Zip',
+                        subtitle: 'No Folder - 0KB',
+                        type: 'zip',
+                        itemKey:i),
                     slideOption: x.slideFileOption,
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SingleShare(title: 'photos'),
+                      ));
+                    },
 
                   ),
                 ],
+              ),
+            ),
+          ),
+          Positioned.fill(
+            top: -MediaQuery.of(context).padding.top + 8.h,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).padding.top,
+                decoration: BoxDecoration(
+                  color: AppColors.secondary3,
+                  borderRadius: BorderRadius.circular(30),
+                ),
               ),
             ),
           ),

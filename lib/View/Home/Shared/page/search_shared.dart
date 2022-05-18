@@ -115,12 +115,11 @@ class SearchShared extends StatelessWidget {
                       search: controller.searchText.value,
                       onTap: () {},
                       slideOption: controller.slideFileOption,
-                      itemModel: FileItemModel(
-                          title: 'document',
-                          subtitle: 'No Folder - 500KB',
-                          itemKey: a,
-                          img: 'assets/image/temp/svg/document_file.svg'
-                      ),
+                      itemModel:  FileItemModel(
+                          title: 'MammadPazoki.Mp4',
+                          subtitle: 'No Folder - 0KB',
+                          type: 'video',
+                          itemKey:e),
                     );
                   }),
                   Obx(() {
@@ -130,11 +129,10 @@ class SearchShared extends StatelessWidget {
                       onTap: () {},
                       slideOption: controller.slideFileOption,
                       itemModel: FileItemModel(
-                          title: 'photos',
+                          title: 'Shadi.M4A',
                           subtitle: 'No Folder - 0KB',
-                          itemKey: e,
-                          img: 'assets/image/temp/svg/document_file.svg'
-                      ),
+                          type: 'voice',
+                          itemKey:g),
                     );
                   }),
                   /*const SearchItem(

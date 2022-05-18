@@ -26,7 +26,10 @@ class BlurButtomsheet extends StatelessWidget {
         ),
         onClosing: (){},
         enableDrag: false,
-        builder: (context) => child,
+        builder: (context) => Padding(
+          padding: MediaQuery.of(context).viewInsets,
+          child: child,
+        ),
       ),
     );
   }

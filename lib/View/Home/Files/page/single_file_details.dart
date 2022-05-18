@@ -14,11 +14,13 @@ import 'package:icloudbox/Widgets/fileItem/show_file_item.dart';
 
 class SingleFileDetails extends StatelessWidget {
   final String title;
-  const SingleFileDetails({Key? key,required this.title}) : super(key: key);
+
+  const SingleFileDetails({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller =Get.find<FilesController>();
+    final controller = Get.find<FilesController>();
+    final e = GlobalKey();
 
     return Scaffold(
       floatingActionButton: GestureDetector(
@@ -47,7 +49,6 @@ class SingleFileDetails extends StatelessWidget {
               size: 30,
             )),
       ),
-
       appBar: AppBar(
         backgroundColor: AppColors.accent2,
         elevation: 0,
@@ -57,7 +58,7 @@ class SingleFileDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding:  EdgeInsets.only(left: 20.w,right: 20.w,top: 25.h),
+              padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 25.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,10 +69,16 @@ class SingleFileDetails extends StatelessWidget {
                     },
                     child: Padding(
                       padding: EdgeInsets.only(right: 6.w),
-                      child: Image.asset('assets/image/file/img/back.png',width: 54.w,),
+                      child: Image.asset(
+                        'assets/image/file/img/back.png',
+                        width: 54.w,
+                      ),
                     ),
                   ),
-                  Text(title,style: AppStyles.semiBoldHeadline1,),
+                  Text(
+                    title,
+                    style: AppStyles.semiBoldHeadline1,
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -80,7 +87,10 @@ class SingleFileDetails extends StatelessWidget {
                     },
                     child: Padding(
                       padding: EdgeInsets.only(right: 6.w),
-                      child: Image.asset('assets/image/home/img/search.png',width: 54.w,),
+                      child: Image.asset(
+                        'assets/image/home/img/search.png',
+                        width: 54.w,
+                      ),
                     ),
                   ),
                 ],
@@ -92,7 +102,7 @@ class SingleFileDetails extends StatelessWidget {
       body: Stack(
         children: [
           Positioned.fill(
-            top: - MediaQuery.of(context).padding.top+8.h,
+            top: -MediaQuery.of(context).padding.top + 8.h,
             child: Align(
               alignment: Alignment.topCenter,
               child: Container(
@@ -106,25 +116,33 @@ class SingleFileDetails extends StatelessWidget {
           ),
           SingleChildScrollView(
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.w),
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 25.h,),
+                  SizedBox(
+                    height: 25.h,
+                  ),
                   Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Text('List',style: AppStyles.semiBoldHeadline2,),
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    child: Text(
+                      'List',
+                      style: AppStyles.semiBoldHeadline2,
+                    ),
                   ),
-                  SizedBox( height: 20.h,),
+                  SizedBox(
+                    height: 20.h,
+                  ),
                   ShowFileItem(
-                    itemModel: FileItemModel(title: 'photos', subtitle: 'No Folder - 0KB',
-                        img: 'assets/image/temp/svg/document_file.svg',
-                        itemKey:GlobalKey()),
+                    itemModel: FileItemModel(
+                        title: 'MammadPazoki.Mp4',
+                        subtitle: 'No Folder - 0KB',
+                        type: 'video',
+                        itemKey: e),
                     slideOption: controller.slideFileOption,
-                    onTap: (){},
-
+                    onTap: () {},
                   ),
-              /*    ShowFileItem(
+                  /*    ShowFileItem(
                     imgImage: 'assets/image/temp/img/pro1.png',
                     subtitle: '8MB - 22 Feb 2022',
                     title: 'Photos',
