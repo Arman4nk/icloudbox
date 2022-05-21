@@ -6,6 +6,8 @@ import 'package:icloudbox/View/Home/Files/component/share_bottomsheet.dart';
 
 class SingleShareController extends GetxController{
 
+  var viewFlag = true.obs;
+  var editFlag = false.obs;
 
   List<SlidableAction> slideFileOption= [
     SlidableAction(

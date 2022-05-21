@@ -131,20 +131,22 @@ class SearchItem extends StatelessWidget {
 
       List<TextSpan> listSpans = [];
       splitString.sublist(1).forEach((element) {
-        listSpans.add(TextSpan(text: search , style: const TextStyle(backgroundColor: AppColors.accent3)));
-        listSpans.add(TextSpan(text: element));
+        listSpans.add(TextSpan(text: search , style:  TextStyle(backgroundColor: AppColors.accent3,fontWeight: FontWeight.w600,fontSize: 16.sp)));
+        listSpans.add(TextSpan(text: element,style: AppStyles.semiBoldBody1,));
       });
 
       return Text.rich(
         TextSpan(
           text: splitString[0],
+          style: AppStyles.semiBoldBody1,
           children: listSpans,
         ),
       );
     } else {
-      return Text(itemModel.title);
+      return Text(itemModel.title,style: AppStyles.semiBoldBody1,);
     }
   }
+
   String setTypeImage() {
     switch (itemModel.type) {
       case 'folder':

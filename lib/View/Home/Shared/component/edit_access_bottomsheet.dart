@@ -3,18 +3,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:icloudbox/Utils/colors.dart';
+import 'package:icloudbox/View/Home/Shared/controller/single_share_controller.dart';
 import '../../../../Utils/text_styls.dart';
-
+typedef EditCheckBoxClick = void Function();
+typedef ViewCheckBoxClick = void Function();
 class EditAccessBottomSheet extends StatelessWidget {
   final String  name;
   final bool viewFlag;
   final bool editFlag;
-
-  const EditAccessBottomSheet({Key? key, required this.name,required this.editFlag,required this.viewFlag}) : super(key: key);
+  final EditCheckBoxClick editFlagClick;
+  final ViewCheckBoxClick viewFlagClick;
+  const EditAccessBottomSheet({
+    Key? key,
+    required this.name,
+    required this.editFlag,
+    required this.viewFlag,
+    required this.viewFlagClick,
+    required this.editFlagClick,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.put(ShareSharedController());
+    final controller = Get.put(SingleShareController());
     return SizedBox(
       height: ScreenUtil().screenHeight - 100.h,
       child: Padding(
@@ -70,8 +80,7 @@ class EditAccessBottomSheet extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: (){
-                        //todo create custom check box
-
+                        editFlagClick();
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -85,13 +94,14 @@ class EditAccessBottomSheet extends StatelessWidget {
                             title: Text('Edit',style: AppStyles.semiBoldBody1,),
                             subtitle: Text('Orginaze,add and edit',style: AppStyles.regularBody3.apply(color: AppColors.secondary2),),
                             trailing: Container(
-                              width: 34.r,
-                              height: 34.r,
+                              width: 40.r,
+                              height: 40.r,
                               decoration: BoxDecoration(
                                 border: Border.all(color:AppColors.primary1),
-                                color: AppColors.accent2,
+                                  color:editFlag==true? AppColors.accent1:AppColors.accent2,
                                 shape: BoxShape.circle
                               ),
+                              child:editFlag==true? Icon(Icons.done,color: AppColors.accent2,):null,
                             ),
                           ),
                         ),
@@ -100,7 +110,7 @@ class EditAccessBottomSheet extends StatelessWidget {
                     SizedBox(height: 8.h,),
                     GestureDetector(
                       onTap: (){
-                        //todo create custom check box
+                        viewFlagClick();
                       },
                       child: Container(
                         decoration: BoxDecoration(

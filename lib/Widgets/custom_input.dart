@@ -29,7 +29,7 @@ class CustomInput extends StatelessWidget {
   final TextEditingController? controller;
   final bool? isObscure;
   final Function()? onIconPress;
-  final String? svgIcon;
+    final String? svgIcon;
   final String? header;
   final DropdownButtonHideUnderline? dropDown;
   final FocusNode? focusNode;
