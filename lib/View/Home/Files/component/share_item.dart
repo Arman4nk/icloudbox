@@ -7,8 +7,10 @@ import 'package:icloudbox/Model/file_item_model.dart';
 import 'package:icloudbox/Model/share_item_model.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
+import 'package:icloudbox/Utils/tools.dart';
 import 'package:icloudbox/View/Home/Files/controller/file_controller.dart';
 import 'package:get/get.dart';
+import 'package:icloudbox/View/Home/Shared/component/edit_access_bottomsheet.dart';
 
 class ShareFileWidget extends StatelessWidget {
 /*  final String? img;
@@ -19,10 +21,13 @@ class ShareFileWidget extends StatelessWidget {
   final List<SlidableAction> slideOption;*/
   final ShareItemModel itemModel;
   final List<SlidableAction> slideOption;
+  final void Function() onTap;
+
 
   const ShareFileWidget({
     required this.itemModel,
     required this.slideOption,
+    required this.onTap,
 /*    required this.title,
     this.img,
     required this.subtitle,
@@ -61,44 +66,52 @@ class ShareFileWidget extends StatelessWidget {
                   color: AppColors.primary3),
             ),
           ),
-          Container(
-            width: ScreenUtil().screenWidth,
-            margin: EdgeInsets.only(bottom: 8.h, right: 6),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: AppColors.accent2,
-                border: Border.all(color: AppColors.primary3)
-            ),
-            child: Padding(
-              padding:
-              EdgeInsets.only(top: 10.h, bottom: 10.h, right: 20.w),
-              child: ListTile(
-                leading:itemModel.img!=null? SvgPicture.asset(itemModel.img!) : ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.asset(itemModel.imgImage!)),
-                title: Text(
-                  itemModel.title,
-                  style: AppStyles.semiBoldBody1,
-                ),
-                subtitle: Row(
-                  children: [
-                    if (itemModel.subTitleIcon != null)
-                      SvgPicture.asset(itemModel.subTitleIcon!),
-                    if (itemModel.subTitleIcon != null)
-                      SizedBox(
-                        width: 5.w,
+          GestureDetector(
+            onTap: (){
+              Tools.showModalBottomSheet(
+                  context: context,
+                  child: EditAccessBottomSheet(name: itemModel.title,viewFlag: true,editFlag: false,)
+              );
+            },
+            child: Container(
+              width: ScreenUtil().screenWidth,
+              margin: EdgeInsets.only(bottom: 8.h, right: 6),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: AppColors.accent2,
+                  border: Border.all(color: AppColors.primary3)
+              ),
+              child: Padding(
+                padding:
+                EdgeInsets.only(top: 10.h, bottom: 10.h),
+                child: ListTile(
+                  leading:itemModel.img!=null? SvgPicture.asset(itemModel.img!) : ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(itemModel.imgImage!)),
+                  title: Text(
+                    itemModel.title,
+                    style: AppStyles.semiBoldBody1,
+                  ),
+                  subtitle: Row(
+                    children: [
+                      if (itemModel.subTitleIcon != null)
+                        SvgPicture.asset(itemModel.subTitleIcon!),
+                      if (itemModel.subTitleIcon != null)
+                        SizedBox(
+                          width: 5.w,
+                        ),
+                      Text(
+                        itemModel.subtitle,
+                        style: AppStyles.regularBody3
+                            .apply(color: AppColors.secondary2),
                       ),
-                    Text(
-                      itemModel.subtitle,
-                      style: AppStyles.regularBody3
-                          .apply(color: AppColors.secondary2),
-                    ),
-                  ],
-                ),
-                trailing: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w),
-                  child:
-                  SvgPicture.asset('assets/image/file/svg/arrow.svg'),
+                    ],
+                  ),
+                  trailing: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child:
+                    SvgPicture.asset('assets/image/file/svg/arrow.svg'),
+                  ),
                 ),
               ),
             ),

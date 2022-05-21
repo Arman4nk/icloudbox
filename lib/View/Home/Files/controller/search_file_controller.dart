@@ -51,7 +51,7 @@ void _onTapRename(){
 void _onTapDownload(){}
 void _onTapShare(){
   Get.bottomSheet(
-    const ShareBottomSheet(),
+    const ShareFileBottomSheet(),
     backgroundColor: AppColors.accent2,
     elevation: 0,
     isScrollControlled: true,
@@ -79,7 +79,7 @@ void onChangeMenu (MenuItemModel? value){
     SlidableAction(
       onPressed: (ctx) {
         Get.bottomSheet(
-          const ShareBottomSheet(),
+          const ShareFileBottomSheet(),
           backgroundColor: AppColors.accent2,
           elevation: 0,
           isScrollControlled: true,

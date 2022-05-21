@@ -51,7 +51,7 @@ class SearchFileController extends GetxController{
   void _onTapDownload(){}
   void _onTapShare(){
     Get.bottomSheet(
-      const ShareBottomSheet(),
+      const ShareFileBottomSheet(),
       backgroundColor: AppColors.accent2,
       elevation: 0,
       isScrollControlled: true,
@@ -79,7 +79,7 @@ class SearchFileController extends GetxController{
     SlidableAction(
       onPressed: (ctx) {
         Get.bottomSheet(
-          const ShareBottomSheet(),
+          const ShareFileBottomSheet(),
           backgroundColor: AppColors.accent2,
           elevation: 0,
           isScrollControlled: true,

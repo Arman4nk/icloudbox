@@ -32,7 +32,7 @@ class FilesController extends GetxController{
     SlidableAction(
       onPressed: (ctx) {
         Get.bottomSheet(
-          const ShareBottomSheet(),
+          const ShareFileBottomSheet(),
           backgroundColor: AppColors.accent2,
           elevation: 0,
           isScrollControlled: true,

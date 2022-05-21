@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:icloudbox/Model/file_item_model.dart';
 import 'package:icloudbox/Utils/colors.dart';
 import 'package:icloudbox/Utils/text_styls.dart';
+import 'package:icloudbox/Utils/tools.dart';
 import 'package:icloudbox/View/Home/Files/component/add_file_page.dart';
-import 'package:icloudbox/View/Home/Files/page/search_file.dart';
 import 'package:icloudbox/View/Home/Files/page/single_file_details.dart';
+import 'package:icloudbox/View/Home/Shared/component/share_shared_bottomsheet.dart';
 import 'package:icloudbox/View/Home/Shared/controller/single_share_controller.dart';
 import 'package:icloudbox/Widgets/blur_widget/blur_bottom_sheet.dart';
 import 'package:icloudbox/Widgets/fileItem/show_file_item.dart';
 
-import '../controller/shared_controller.dart';
 
 class SingleShare extends StatelessWidget {
   final String title;
@@ -75,9 +75,10 @@ class SingleShare extends StatelessWidget {
                   Text(title,style: AppStyles.semiBoldHeadline1,),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SearchFile(),
-                      ));
+                      Tools.showModalBottomSheet(
+                          context: context,
+                          child:const ShareSharedBottomSheet()
+                      );
                     },
                     child: Padding(
                       padding: EdgeInsets.only(right: 6.w),
@@ -107,26 +108,71 @@ class SingleShare extends StatelessWidget {
             ),
           ),
           SingleChildScrollView(
-            child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 25.h,),
+                Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 30.w),
+                  child: Text('Online Members',style: AppStyles.semiBoldHeadline2,),
+                ),
+                  SizedBox(height: 30.h,),
+                  SizedBox(
+                    height: 70.h,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(width: 20.w,),
+                            for(int i=2 ; i<=14 ; i ++)
+                              Stack(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundImage: AssetImage('assets/image/temp/img/pro$i.png'),
+                                    radius: 35,
+                                  ),
+                                  Positioned.fill(
+                                    top: -40,
+                                    left: 5,
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Container(
+                                        width: 15.w,
+                                        padding: EdgeInsets.all(3),
+                                        decoration:  BoxDecoration(
+                                          color: AppColors.secondary4,
+                                          shape: BoxShape.circle,
+                                          border: Border.all(color: AppColors.accent2,width: 3.w),
+                                        ),
 
-
-
-
-
-
-
-
-                  SizedBox(height: 25.h,),
-                  Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Text('Files',style: AppStyles.semiBoldHeadline2,),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            SizedBox(width: 20.w,),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                  SizedBox( height: 20.h,),
-                  ShowFileItem(
+
+
+
+
+
+
+                SizedBox(height: 25.h,),
+                Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 30.w),
+                  child: Text('Files',style: AppStyles.semiBoldHeadline2,),
+                ),
+                SizedBox( height: 20.h,),
+                Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                  child: ShowFileItem(
                     itemModel: FileItemModel(
                         title: 'karo.Mp4',
                         subtitle: 'No Folder - 0KB',
@@ -139,8 +185,8 @@ class SingleShare extends StatelessWidget {
                       ));
                     },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           )
         ],

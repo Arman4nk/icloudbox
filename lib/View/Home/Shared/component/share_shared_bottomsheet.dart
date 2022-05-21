@@ -3,15 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:icloudbox/Model/share_item_model.dart';
 import 'package:icloudbox/View/Home/Files/component/share_item.dart';
-import 'package:icloudbox/View/Home/Files/controller/share_file_controller.dart';
+import 'package:icloudbox/View/Home/Shared/controller/share_shared_controller.dart';
 import '../../../../Utils/text_styls.dart';
 import '../../../../Widgets/custom_input.dart';
-class ShareFileBottomSheet extends StatelessWidget {
-  const ShareFileBottomSheet({Key? key}) : super(key: key);
+class ShareSharedBottomSheet extends StatelessWidget {
+  const ShareSharedBottomSheet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ShareFileController());
+    final controller = Get.put(ShareSharedController());
     return    SizedBox(
       height: ScreenUtil().screenHeight-100.h,
       child: Padding(
@@ -40,13 +40,13 @@ class ShareFileBottomSheet extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 20.h),
                   child: InkWell(
-                      onTap: () {
-                        // Get.back();
-                      },
-                      child: Image.asset(
-                        'assets/image/file/img/add_friend.png',
-                        width: 50.w,
-                      ),),
+                    onTap: () {
+                      // Get.back();
+                    },
+                    child: Image.asset(
+                      'assets/image/file/img/add_friend.png',
+                      width: 50.w,
+                    ),),
                 ),
               ],
             ),
@@ -54,10 +54,6 @@ class ShareFileBottomSheet extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 14.h,
-                    ),
-
                     Obx(
                           () => CustomInput(
                         hintText: 'Search',
@@ -73,7 +69,7 @@ class ShareFileBottomSheet extends StatelessWidget {
                     Padding(
                       padding:  EdgeInsets.only(left: 10.w),
                       child: Align(
-                        alignment: Alignment.centerLeft,
+                          alignment: Alignment.centerLeft,
                           child: Text('User Access',style: AppStyles.semiBoldHeadline2,)),
                     ),
 
@@ -89,7 +85,6 @@ class ShareFileBottomSheet extends StatelessWidget {
                       ),
                       slideOption: controller.slideShareOption,
                       onTap: (){},
-
                       // slideOption: controller.slideShareOption,
                     ),
                     ShareFileWidget(
@@ -100,6 +95,7 @@ class ShareFileBottomSheet extends StatelessWidget {
                       ),
                       slideOption: controller.slideShareOption,
                       onTap: (){},
+
                     ),
                     ShareFileWidget(
                       itemModel: ShareItemModel(
